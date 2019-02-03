@@ -1,0 +1,153 @@
+---
+title: "Oficina de R - Intermediário"
+subtitle: "R-Ladies São Paulo"
+date: "23/02/2019"
+output:
+  xaringan::moon_reader:
+    chakra: libs/remark-latest.min.js
+    css: [default, rladies, robot-fonts]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE, fig.align = "center")
+```
+class:  center, middle
+
+##Organização e realização:
+```{r echo=FALSE, fig.align='center', out.width="15%"}
+knitr::include_graphics("img/rladies.jpeg")
+```
+[R-Ladies São Paulo](https://www.meetup.com/R-Ladies-Sao-Paulo)
+
+##Apoio:
+
+```{r echo=FALSE, fig.align='center', out.width="50%"}
+#knitr::include_graphics("img/???.png")
+```
+
+[???](???)
+
+---
+class:  center, middle
+# O que é o R-Ladies?
+
+R-Ladies é uma organização mundial que promove a diversidade de gênero na comunidade da linguagem R.
+R-Ladies São Paulo integra, orgulhosamente, a organização R-Ladies Global, em São Paulo.
+
+# Como?
+
+Através de meetups e mentorias em um ambiente seguro e amigável.
+
+Nosso principal objetivo é promover a linguagem computacional estatística R compartilhando conhecimento, assim, quem tiver interesse na linguagem será bem-vinda, independente do nível de conhecimento. 
+
+
+Fonte: [About us - R-Ladies](https://rladies.org/about-us/), [Meetup R-Ladies São Paulo](https://www.meetup.com/R-Ladies-Sao-Paulo/)
+
+---
+class:   center, middle
+# Para quem?
+Nosso principal público-alvo são as pessoas que se identificam com o gênero feminino, portanto, mulheres cis, mulheres trans, bem como pessoas não-binárias e queer.
+
+# Missão
+
+Como uma iniciativa de diversidade, a missão das R-Ladies é alcançar uma representação proporcional de pessoas de gêneros atualmente sub-representados na comunidade R, incentivando, inspirando e caacitando-as.
+
+
+
+Fonte: [About us - R-Ladies](https://rladies.org/about-us/), [Meetup R-Ladies São Paulo](https://www.meetup.com/R-Ladies-Sao-Paulo/)
+
+
+
+---
+class:   center, middle
+## Como o R-Ladies começou?
+```{r echo=FALSE, fig.align='center', out.width="20%"}
+knitr::include_graphics("img/gabriela.jpeg")
+```
+**[Gabriela de Queiroz](https://github.com/gdequeiroz)** fundou o R-Ladies no dia **1 de outubro de 2012**. Ela queria retribuir à comunidade depois de ir a vários encontros e aprender muito de graça. O primeiro encontro R-Ladies foi realizado em ** San Francisco, Califórnia (Estados Unidos) **. Nos anos seguintes, mais capítulos do R-Ladies começaram em todo o mundo.
+
+Fonte: [About us - R-Ladies](https://rladies.org/about-us/history/)
+
+
+---
+class:center, middle
+
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("img/shiny2.png")
+```
+
+
+Fonte: [R-Ladies Shiny App](https://gqueiroz.shinyapps.io/rshinylady/)  (26/01/2019)
+---
+class:   center, middle
+# Código de conduta
+
+
+O R-Ladies dedica-se a proporcionar uma experiência livre de assédio para todos. Não toleramos nenhuma forma de assédio aos participantes.
+
+
+[Código de conduta - R-Ladies](https://github.com/rladies/starter-kit/wiki/Code-of-Conduct#portuguese)
+
+
+---
+class:  center, middle
+# Como saber mais?
+
+[Meetup](https://www.meetup.com/pt-BR/R-Ladies-Sao-Paulo)
+
+Twitter: [@RLadiesGlobal](https://twitter.com/rladiesglobal)
+
+Website: [https://rladies.org/](https://rladies.org/)
+
+R-Ladies LATAM Blog (Latin America) - Em breve!
+
+
+[R-Ladies - How do get involved](https://rladies.org/about-us/help/)
+
+---
+class:   center, middle
+
+# R-Ladies São Paulo
+
+
+```{r echo=FALSE, fig.align='center', out.width="70%"}
+knitr::include_graphics("img/1meetupsp.jpeg")
+```
+**Primero Meetup R-Ladies em São Paulo - Agosto/2018**
+
+
+---
+class:   middle
+# Cronograma de hoje
+
+## Manhã:
+
+- Revisão - dplyr
+
+- ggplot2 
+
+## Tarde:
+
+- ?
+
+---
+# Referências
+
+... 
+
+
+A apresentação foi feita em [xaringan](https://github.com/yihui/xaringan), um pacote do R! :)
+
+
+---
+
+class: middle, inverse
+
+# Muito obrigada!
+
+R-Ladies São Paulo
