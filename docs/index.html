@@ -119,7 +119,7 @@ class:   middle
 
 ## Manhã:
 
-- Revisão - dplyr
+- Relembrando - pipe e dplyr
 
 - ggplot2 
 
@@ -128,7 +128,237 @@ class:   middle
 - ?
 
 ---
+
+# O Tidyverse
+
+É uma coleção de pacotes R projetados para a ciência de dados. Todos os pacotes compartilham uma mesma filosofia de desenvolvimento, sintaxe e estruturas de dados.
+
+
+```r
+install.packages("tidyverse") #para instalar o tidyverse
+library(tidyverse) #para utilizar o tidyverse
+```
+
+&lt;img src="img/Tidyverse_packages.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+# Relembrando: Pipe (%&gt;%)
+
+**Atalho**: CTRL + SHIFT + M
+
+---
+# Relembrando: dplyr
+
+A ideia do pacote **dplyr** é tornar a manipulação de dados explícita utilizando verbos que indicam a ação a ser realizada. 
+
+O encadeamento dos verbos com o banco de dados é realizado com o operador **pipe**: **%&gt;%**
+
+O dplyr foi desenhado para trabalhar com o operator pipe **%&gt;%** do pacote magritrr.
+---
+
+# Os 6 verbos do dplyr 
+
+- **filter**(): seleciona linhas
+
+- **arrange**(): ordena de acordo com uma ou mais colunas 
+
+- **select**(): seleciona colunas 
+
+- **mutate**(): cria/modifica colunas 
+
+- **summarise**(): sumariza/agrega colunas
+
+- **group_by**(): agrupa colunas
+
+
+
+---
+# ggplot2 
+
+- É um pacote usado para visualização de dados.
+
+- É uma implementação da Grammar of Graphics de Leland Wilkinson - um esquema geral para visualização de dados que divide gráficos em componentes semânticos como escalas e camadas.
+
+- [Cheatsheet em português](https://www.rstudio.com/wp-content/uploads/2016/03/ggplot2-cheatsheet-portuguese.pdf)
+
+- Material interessante: [Code Your Graph - A Workshop on Visualizing Your Data with ggplotby Alison Presmanes Hill &amp; Julianne Myers](https://alison.rbind.io/html/jamboree_heart_ggplot.html)
+
+&lt;img src="img/ggplot2.png" width="241" style="display: block; margin: auto;" /&gt;
+
+---
+
+# ggplot2 - o pacote dos gráficos
+
+&lt;img src="img/ggplot_masterlist_23.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+&lt;img src="img/ggplot_masterlist_49.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+[Fonte: r-statistics.co](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
+---
+# Carregar a base de dados
+
+```r
+library(tidyverse)
+
+# Uma outra opção é carregar somente o(s) pacote(s) que irá utilizar.
+#library(dplyr)
+
+# Importa o arquivo csv para o objeto df_titanic
+df_titanic &lt;- read_csv("data/titanic.csv")
+```
+
+---
+** Exemplos passo a passo: Exemplo 1 - geom_bar **
+
+```r
+df_titanic %&gt;% 
+ggplot()
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-12-1.png" style="display: block; margin: auto;" /&gt;
+---
+** Exemplos passo a passo: Exemplo 1 - geom_bar **
+
+```r
+df_titanic %&gt;% 
+ggplot(aes(x=sobreviveu))
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-13-1.png" style="display: block; margin: auto;" /&gt;
+---
+** Exemplos passo a passo: Exemplo 1 - geom_bar **
+
+```r
+df_titanic %&gt;% 
+ggplot(aes(x=sobreviveu))+
+geom_bar()
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /&gt;
+---
+** Exemplo 1 - geom_bar **
+
+```r
+df_titanic %&gt;% 
+ggplot(aes(x=sobreviveu, fill=sexo))+
+geom_bar()
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-15-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+** Exemplo 1 - geom_bar **
+
+```r
+df_titanic %&gt;% 
+ggplot(aes(x=sobreviveu, fill=sexo))+
+geom_bar()+
+  theme_bw()
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" /&gt;
+---
+
+
+```r
+df_titanic %&gt;% 
+ggplot(aes(x=sobreviveu, fill=sexo)) +
+geom_bar() +
+  theme_bw() +
+  labs(
+    title = "Título do gráfico",
+    x = "Sobreviveu", 
+    y = "Contagem",
+    fill = "Sexo"
+  )
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" /&gt;
+---
+
+
+```r
+df_titanic %&gt;% 
+ggplot(aes(x=sobreviveu, fill=sexo)) +
+geom_bar() +
+theme_bw() +
+  labs(
+    title = "Título do gráfico",
+    x = "Sobreviveu", 
+    y = "Contagem",
+    fill = "Sexo") +  
+  facet_wrap(~embarque)
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-18-1.png" style="display: block; margin: auto;" /&gt;
+---
+
+** Exemplo - geom_boxplot**
+
+```r
+df_titanic %&gt;% 
+ggplot(aes(x=sexo, y=idade, fill=sexo))+
+geom_boxplot()
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-19-1.png" style="display: block; margin: auto;" /&gt;
+---
+** Usar dplyr + ggplot2** - Gapminder dataset
+
+```r
+library(gapminder)
+head(gapminder)
+```
+
+```
+## # A tibble: 6 x 6
+##   country     continent  year lifeExp      pop gdpPercap
+##   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+## 1 Afghanistan Asia       1952    28.8  8425333      779.
+## 2 Afghanistan Asia       1957    30.3  9240934      821.
+## 3 Afghanistan Asia       1962    32.0 10267083      853.
+## 4 Afghanistan Asia       1967    34.0 11537966      836.
+## 5 Afghanistan Asia       1972    36.1 13079460      740.
+## 6 Afghanistan Asia       1977    38.4 14880372      786.
+```
+
+---
+** Usar dplyr + ggplot2** - Gapminder dataset
+
+```r
+gapminder %&gt;% 
+  filter(year == 2007) %&gt;% 
+  ggplot(aes(x = lifeExp, y = gdpPercap, color = continent))+
+  geom_point(show.legend = FALSE)+
+  scale_y_log10()+
+  facet_wrap(~continent) +
+  theme_bw() 
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-21-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+
+
+
+
+
+
 # Referências
+
+
+- https://r4ds.had.co.nz
+
+- https://www.curso-r.com/material/
+
+- https://www.tidyverse.org
+
+- http://brunaw.com/slides/rladies-sp/13-08-2018/meetup.html#1
+
+- https://github.com/MaryMS/2018-11-R-Course-FatecZS
+
+- https://beatrizmilz.github.io/talk/oficina_intro_r_ufabc_2018/
 
 ... 
 

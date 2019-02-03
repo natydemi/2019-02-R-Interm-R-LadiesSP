@@ -127,7 +127,7 @@ class:   middle
 
 ## Manhã:
 
-- Revisão - dplyr
+- Relembrando - pipe e dplyr
 
 - ggplot2 
 
@@ -136,7 +136,206 @@ class:   middle
 - ?
 
 ---
+
+# O Tidyverse
+
+É uma coleção de pacotes R projetados para a ciência de dados. Todos os pacotes compartilham uma mesma filosofia de desenvolvimento, sintaxe e estruturas de dados.
+
+```{r eval=FALSE, include=TRUE}
+install.packages("tidyverse") #para instalar o tidyverse
+library(tidyverse) #para utilizar o tidyverse
+```
+
+```{r echo=FALSE, fig.align='center', out.width="60%"}
+knitr::include_graphics("img/Tidyverse_packages.png")
+```
+
+---
+# Relembrando: Pipe (%>%)
+
+**Atalho**: CTRL + SHIFT + M
+
+---
+# Relembrando: dplyr
+
+A ideia do pacote **dplyr** é tornar a manipulação de dados explícita utilizando verbos que indicam a ação a ser realizada. 
+
+O encadeamento dos verbos com o banco de dados é realizado com o operador **pipe**: **%>%**
+
+O dplyr foi desenhado para trabalhar com o operator pipe **%>%** do pacote magritrr.
+---
+
+# Os 6 verbos do dplyr 
+
+- **filter**(): seleciona linhas
+
+- **arrange**(): ordena de acordo com uma ou mais colunas 
+
+- **select**(): seleciona colunas 
+
+- **mutate**(): cria/modifica colunas 
+
+- **summarise**(): sumariza/agrega colunas
+
+- **group_by**(): agrupa colunas
+
+
+
+---
+# ggplot2 
+
+- É um pacote usado para visualização de dados.
+
+- É uma implementação da Grammar of Graphics de Leland Wilkinson - um esquema geral para visualização de dados que divide gráficos em componentes semânticos como escalas e camadas.
+
+- [Cheatsheet em português](https://www.rstudio.com/wp-content/uploads/2016/03/ggplot2-cheatsheet-portuguese.pdf)
+
+- Material interessante: [Code Your Graph - A Workshop on Visualizing Your Data with ggplotby Alison Presmanes Hill & Julianne Myers](https://alison.rbind.io/html/jamboree_heart_ggplot.html)
+
+```{r echo=FALSE}
+knitr::include_graphics("img/ggplot2.png")
+```
+
+---
+
+# ggplot2 - o pacote dos gráficos
+
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("img/ggplot_masterlist_23.png")
+```
+
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("img/ggplot_masterlist_49.png")
+```
+
+[Fonte: r-statistics.co](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
+---
+# Carregar a base de dados
+```{r, message=FALSE}
+library(tidyverse)
+
+# Uma outra opção é carregar somente o(s) pacote(s) que irá utilizar.
+#library(dplyr)
+
+# Importa o arquivo csv para o objeto df_titanic
+df_titanic <- read_csv("data/titanic.csv")
+
+```
+
+---
+** Exemplos passo a passo: Exemplo 1 - geom_bar **
+```{r warning=FALSE}
+df_titanic %>% 
+ggplot()
+```
+---
+** Exemplos passo a passo: Exemplo 1 - geom_bar **
+```{r warning=FALSE}
+df_titanic %>% 
+ggplot(aes(x=sobreviveu))
+```
+---
+** Exemplos passo a passo: Exemplo 1 - geom_bar **
+```{r warning=FALSE}
+df_titanic %>% 
+ggplot(aes(x=sobreviveu))+
+geom_bar()
+```
+---
+** Exemplo 1 - geom_bar **
+```{r warning=FALSE}
+df_titanic %>% 
+ggplot(aes(x=sobreviveu, fill=sexo))+
+geom_bar()
+```
+
+---
+** Exemplo 1 - geom_bar **
+```{r warning=FALSE}
+df_titanic %>% 
+ggplot(aes(x=sobreviveu, fill=sexo))+
+geom_bar()+
+  theme_bw()
+```
+---
+
+```{r warning=FALSE}
+df_titanic %>% 
+ggplot(aes(x=sobreviveu, fill=sexo)) +
+geom_bar() +
+  theme_bw() +
+  labs(
+    title = "Título do gráfico",
+    x = "Sobreviveu", 
+    y = "Contagem",
+    fill = "Sexo"
+  )
+```
+---
+
+```{r warning=FALSE}
+df_titanic %>% 
+ggplot(aes(x=sobreviveu, fill=sexo)) +
+geom_bar() +
+theme_bw() +
+  labs(
+    title = "Título do gráfico",
+    x = "Sobreviveu", 
+    y = "Contagem",
+    fill = "Sexo") +  
+  facet_wrap(~embarque)
+```
+---
+
+** Exemplo - geom_boxplot**
+```{r warning=FALSE}
+df_titanic %>% 
+ggplot(aes(x=sexo, y=idade, fill=sexo))+
+geom_boxplot()
+```
+---
+** Usar dplyr + ggplot2** - Gapminder dataset
+```{r}
+library(gapminder)
+head(gapminder)
+
+```
+
+---
+** Usar dplyr + ggplot2** - Gapminder dataset
+```{r}
+gapminder %>% 
+  filter(year == 2007) %>% 
+  ggplot(aes(x = lifeExp, y = gdpPercap, color = continent))+
+  geom_point(show.legend = FALSE)+
+  scale_y_log10()+
+  facet_wrap(~continent) +
+  theme_bw() 
+
+```
+
+---
+
+
+
+
+
+
+
 # Referências
+
+
+- https://r4ds.had.co.nz
+
+- https://www.curso-r.com/material/
+
+- https://www.tidyverse.org
+
+- http://brunaw.com/slides/rladies-sp/13-08-2018/meetup.html#1
+
+- https://github.com/MaryMS/2018-11-R-Course-FatecZS
+
+- https://beatrizmilz.github.io/talk/oficina_intro_r_ufabc_2018/
 
 ... 
 
