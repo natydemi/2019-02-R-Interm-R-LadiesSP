@@ -6,6 +6,15 @@
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/rladies.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/robot-fonts.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+    <script src="libs/jquery-1.12.4/jquery.min.js"></script>
+    <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="libs/datatables-binding-0.5/datatables.js"></script>
+    <link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+    <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
   </head>
   <body>
     <textarea id="source">
@@ -26,9 +35,9 @@ class:  center, middle
 
 ##Apoio:
 
+&lt;img src="img/loggi.png" width="50%" style="display: block; margin: auto;" /&gt;
 
-
-[???](???)
+[Loggi](https://www.loggi.com/)
 
 ---
 class:  center, middle
@@ -58,8 +67,6 @@ Como uma iniciativa de diversidade, a missão das R-Ladies é alcançar uma repr
 
 
 Fonte: [About us - R-Ladies](https://rladies.org/about-us/), [Meetup R-Ladies São Paulo](https://www.meetup.com/R-Ladies-Sao-Paulo/)
-
-
 
 ---
 class:   center, middle
@@ -118,15 +125,18 @@ class:   middle
 # Cronograma de hoje
 
 ## Manhã:
-
-- Relembrando - pipe e dplyr
-
-- ggplot2 
+- Revisão - O que é o tidyverse e dplyr
+- Introdução ao purrr
+- Introdução ao ggplot2 
 
 ## Tarde:
 
-- ?
+- Introdução ao ggplot2 
+- Introdução ao RMarkdown
 
+---
+class:   middle, center
+# Tidyverse
 ---
 
 # O Tidyverse
@@ -170,6 +180,38 @@ O dplyr foi desenhado para trabalhar com o operator pipe **%&gt;%** do pacote ma
 
 - **group_by**(): agrupa colunas
 
+---
+- **Carregar o dataset**
+
+Utilizaremos o dataset `diamonds`, que vem no pacote ggplot2. 
+
+```r
+library(tidyverse)
+#install.packages("ggplot2")
+library(ggplot2)
+DT::datatable(head(diamonds), fillContainer = FALSE)
+```
+
+<div id="htmlwidget-476aa869fbb3f64339d9" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-476aa869fbb3f64339d9">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6"],[0.23,0.21,0.23,0.29,0.31,0.24],["Ideal","Premium","Good","Premium","Good","Very Good"],["E","E","E","I","J","J"],["SI2","SI1","VS1","VS2","SI2","VVS2"],[61.5,59.8,56.9,62.4,63.3,62.8],[55,61,65,58,58,57],[326,326,327,334,335,336],[3.95,3.89,4.05,4.2,4.34,3.94],[3.98,3.84,4.07,4.23,4.35,3.96],[2.43,2.31,2.31,2.63,2.75,2.48]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>carat<\/th>\n      <th>cut<\/th>\n      <th>color<\/th>\n      <th>clarity<\/th>\n      <th>depth<\/th>\n      <th>table<\/th>\n      <th>price<\/th>\n      <th>x<\/th>\n      <th>y<\/th>\n      <th>z<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,5,6,7,8,9,10]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+
+```r
+diamonds &lt;- ggplot2::diamonds
+```
+
+---
+# Dplyr - Join
+
+
+
+
+
+
+---
+# Purrr
+
+
+
 
 
 ---
@@ -187,164 +229,527 @@ O dplyr foi desenhado para trabalhar com o operator pipe **%&gt;%** do pacote ma
 
 ---
 
-# ggplot2 - o pacote dos gráficos
-
-&lt;img src="img/ggplot_masterlist_23.png" width="50%" style="display: block; margin: auto;" /&gt;
-
-&lt;img src="img/ggplot_masterlist_49.png" width="50%" style="display: block; margin: auto;" /&gt;
-
-[Fonte: r-statistics.co](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
----
-# Carregar a base de dados
+** Exemplos passo a passo: Exemplo 1 - geom_bar **
 
 ```r
-library(tidyverse)
-
-# Uma outra opção é carregar somente o(s) pacote(s) que irá utilizar.
-#library(dplyr)
-
-# Importa o arquivo csv para o objeto df_titanic
-df_titanic &lt;- read_csv("data/titanic.csv")
+diamonds %&gt;% ggplot()
 ```
 
+&lt;img src="index_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /&gt;
 ---
 ** Exemplos passo a passo: Exemplo 1 - geom_bar **
 
 ```r
-df_titanic %&gt;% 
-ggplot()
+diamonds %&gt;%  ggplot(aes(x=cut))
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-11-1.png" style="display: block; margin: auto;" /&gt;
+---
+** Exemplos passo a passo: Exemplo 1 - geom_bar **
+
+```r
+diamonds %&gt;% ggplot(aes(x=cut))+
+geom_bar()
 ```
 
 &lt;img src="index_files/figure-html/unnamed-chunk-12-1.png" style="display: block; margin: auto;" /&gt;
 ---
-** Exemplos passo a passo: Exemplo 1 - geom_bar **
+** Exemplo 1 - geom_bar **
 
 ```r
-df_titanic %&gt;% 
-ggplot(aes(x=sobreviveu))
+diamonds %&gt;% ggplot(aes(x=cut, fill=color))+
+geom_bar()
 ```
 
 &lt;img src="index_files/figure-html/unnamed-chunk-13-1.png" style="display: block; margin: auto;" /&gt;
+
 ---
-** Exemplos passo a passo: Exemplo 1 - geom_bar **
+** Exemplo 1 - geom_bar **
 
 ```r
-df_titanic %&gt;% 
-ggplot(aes(x=sobreviveu))+
-geom_bar()
+diamonds %&gt;% ggplot(aes(x=cut, fill=color))+
+geom_bar()+theme_bw()
 ```
 
 &lt;img src="index_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /&gt;
 ---
-** Exemplo 1 - geom_bar **
+
 
 ```r
-df_titanic %&gt;% 
-ggplot(aes(x=sobreviveu, fill=sexo))+
-geom_bar()
+diamonds %&gt;%  ggplot(aes(x=cut, fill=color)) +
+  geom_bar() + theme_bw() +
+  labs(title = "Título do gráfico", x = "Corte do diamante", 
+    y = "Contagem", fill = "Cor") 
 ```
 
 &lt;img src="index_files/figure-html/unnamed-chunk-15-1.png" style="display: block; margin: auto;" /&gt;
-
 ---
-** Exemplo 1 - geom_bar **
+
 
 ```r
-df_titanic %&gt;% 
-ggplot(aes(x=sobreviveu, fill=sexo))+
-geom_bar()+
-  theme_bw()
+diamonds %&gt;%  ggplot(aes(x=cut, fill=color)) +
+  geom_bar() + theme_bw() +
+  labs(title = "Título do gráfico", x = "Corte do diamante", 
+    y = "Contagem", fill = "Cor") +  
+  facet_wrap(~clarity)
 ```
 
 &lt;img src="index_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" /&gt;
 ---
+class:  inverse, center, middle
+# RMarkdown e relatórios dinâmicos
+---
+## Rmarkdown
+* É um tipo de arquivo que suporta códigos em R, texto, markdown e outros formatos.
+
+* Apresenta os seus códigos, o resultado, e também os seus comentários.
+
+* Arquivos **.Rmd** são reprodutíveis.
+
+* São interessantes para trabalhar em equipe, para comunicar seus resultados, e para desenvolver seus códigos em R.
+
+* O markdown é uma linguagem de marcação simples. 
+
+* [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+
+- Pacote [Rmarkdown](https://rmarkdown.rstudio.com/) 
+- Pacote [knitr](http://yihui.name/knitr/)
+- [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+
+---
+## Rmarkdown
+* Possibilita exportar diferentes tipos de arquivos.
+&lt;img src="img/markdown.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+class: middle
+## Como criar um arquivo RMarkdown?
+
+No RStudio, clique em File → New File → R Markdown 
+&lt;img src="img/1.PNG" width="267" style="display: block; margin: auto;" /&gt;
+ 
+---
+class: middle
+## Como criar um arquivo RMarkdown?
+
+&lt;img src="img/New_R_Markdown.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+class:  middle
+
+# yaml - metadados do documento:
+- **y**et **a**nother **m**arkup **l**anguage 
+- Controla muitas das configurações do documento.
+- title: título
+- subtitle: subtítulo
+- author: autor
+- date: data
+- output: formato (Ex: html_document, pdf_document, etc). 
+- Cuidado com a **identação**
+
+Leia também: [Output Formats - R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/output-formats.html)
+
+
 
 
 ```r
-df_titanic %&gt;% 
-ggplot(aes(x=sobreviveu, fill=sexo)) +
-geom_bar() +
-  theme_bw() +
-  labs(
-    title = "Título do gráfico",
-    x = "Sobreviveu", 
-    y = "Contagem",
-    fill = "Sexo"
-  )
-```
-
-&lt;img src="index_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" /&gt;
 ---
+title: "Initial R Markdown document"
+author: "Karl Broman"
+date: "April 23, 2015"
+output: html_document
+---
+```
+---
+# Markdown
+* O markdown é uma linguagem de marcação simples. 
+* [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+* Elaborada para ser fácil de ler, fácil de escrever.
+
+
+**Negrito**: `**bold**` 
+
+_Itálico_: `_italics_`
+
+---
+#Sintaxe Markdown
+**Adicionar títulos**
+
+`# Título 1`
+
+`## Título 2`
+
+`### Título 3` 
+
+# Título 1
+## Título 2
+### Título 3
+
+---
+class: middle
+# Making a bullet list
+You can make a bulleted list by writing a list with hyphens or asterisks, like this:
+
+`* bold with double-asterisks`
+
+`* italics with underscores`
+
+`* code-type font with backticks`
+
+or like this:
+
+`- bold with double-asterisks`
+
+`- italics with underscores`
+
+`- code-type font with backticks`
+
+Each will appear as:
+
+- bold with double-asterisks
+- italics with underscores
+- code-type font with backticks
+
+
+Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+
+
+---
+class: middle
+# Making a numbered list
+You can make a numbered list by just using numbers. You can use the same number over and over if you want:
+
+`1. bold with double-asterisks`
+
+`1. italics with underscores`
+
+`1. code-type font with backticks`
+
+This will appear as:
+
+1. bold with double-asterisks
+1. italics with underscores
+1. code-type font with backticks
+
+
+Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+
+
+
+
+---
+class: middle
+# Compile the RMarkdown
+
+You compile the R Markdown document to an html webpage by clicking the “Knit HTML” in the upper-left. 
+
+
+#Challenge
+Create a new R Markdown document. Delete all of the R code chunks and write a bit of Markdown (some sections, some italicized text, and an itemized list).
+
+Convert the document to a webpage.
+
+You can use the [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) for reference.
+
+Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+
+---
+class: middle
+# More on Markdown
+
+You can make a hyperlink like this: `[text to show](http://the-web-page.com)`.
+
+You can include an image file like this: `![caption](http://url/for/file)`
+
+You can do subscripts (e.g., F~2~) with `F~2` and superscripts (e.g., F^2^) with `F^2^`.
+
+If you know how to write equations in LaTeX, you’ll be glad to know that you can use $ $ and $$ $$ to insert math equations, like `$E = mc^2$` and
+
+`$$y = \mu + \sum_{i=1}^p \beta_i x_i + \epsilon$$`
+
+Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+
+---
+class: middle
+# R Code Chunks
+
+Markdown is interesting and useful, but the real power comes from mixing markdown with chunks of R code.
+This is R Markdown. When processed, the R code will be executed; if they produce figures, the figures will be inserted in the final document.
+
+&lt;img src="img/chunk.png" width="788" style="display: block; margin: auto;" /&gt;
+
+
+
+- It’s a good idea to give each chunk a name, as they will help you to fix errors and, if any graphs are produced, the file names are based on the name of the code chunk that produced them.
+
+
+Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+---
+class: middle
+# How to create a code chunk?
+
+&lt;img src="img/8.PNG" width="267" style="display: block; margin: auto;" /&gt;
+ 
+Tip: Keyboard shortchut for creating a code chunk is:  `Ctrl + ALt + I`.
+
+
+# Challenge
+Add code chunks to load the dplyr package
+ 
+ 
+---
+class: middle
+# How things get compiled? 
+
+- When you press the “Knit HTML” button, the R Markdown document is processed by knitr and a plain Markdown document is produced (as well as, potentially, a set of figure files): the R code is executed and replaced by both the input and the output; if figures are produced, links to those figures are included.
+
+- The Markdown and figure documents are then processed by the tool pandoc, which converts the Markdown file into an html file, with the figures embedded.
+
+
+&lt;img src="img/rmd-15-rmd_to_html_fig-1.png" width="768" style="display: block; margin: auto;" /&gt;
+
+Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+
+
+---
+class: middle
+#Chunk options
+
+There are a variety of options to affect how the code chunks are treated.
+
+- Use `echo=FALSE` to avoid having the code itself shown.
+
+- Use `results="hide"` to avoid having any results printed.
+
+- Use `eval=FALSE` to have the code shown but not evaluated.
+
+- Use `warning=FALSE` and `message=FALSE` to hide any warnings or messages produced.
+
+- Use `out.width` to control the size of the figures produced (Ex: `out.width = "100%"`.
+
+
+
+So you might write:
+
+&lt;img src="img/chunk_load_libraries.png" width="791" style="display: block; margin: auto;" /&gt;
+ 
+Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+ 
+---
+class: middle
+# Chunk global options
+Often there will be particular options that you’ll want to use repeatedly; for this, you can set global chunk options, like so:
+
+
+&lt;img src="img/chunk_global_options.png" width="788" style="display: block; margin: auto;" /&gt;
+
+The `fig.path` option defines where the figures will be saved. The `/` here is really important; without it, the figures would be saved in the standard place but just with names that begin with Figs.
+
+
+
+Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+
+---
+class: middle
+# Inline R code
+You can make every number in your report reproducible.
 
 
 ```r
-df_titanic %&gt;% 
-ggplot(aes(x=sobreviveu, fill=sexo)) +
-geom_bar() +
-theme_bw() +
-  labs(
-    title = "Título do gráfico",
-    x = "Sobreviveu", 
-    y = "Contagem",
-    fill = "Sexo") +  
-  facet_wrap(~embarque)
+#Use `r and ` for an in-line code chunk . 
+#The code will be executed and 
+#replaced with the value of the result.
 ```
 
-&lt;img src="index_files/figure-html/unnamed-chunk-18-1.png" style="display: block; margin: auto;" /&gt;
----
 
-** Exemplo - geom_boxplot**
+
 
 ```r
-df_titanic %&gt;% 
-ggplot(aes(x=sexo, y=idade, fill=sexo))+
-geom_boxplot()
+`r code`
+
+Ex:
+
+`r round(3.14159265359, 2)`
 ```
 
-&lt;img src="index_files/figure-html/unnamed-chunk-19-1.png" style="display: block; margin: auto;" /&gt;
+3.14
+
+Don’t let these in-line chunks get split across lines.
+
+ 
+
+Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
 ---
-** Usar dplyr + ggplot2** - Gapminder dataset
+class: middle
+# Inline R code
+Another example:
 
 ```r
-library(gapminder)
-head(gapminder)
+# The dataframe mtcars has `r nrow(mtcars)` cars. 
 ```
 
-```
-## # A tibble: 6 x 6
-##   country     continent  year lifeExp      pop gdpPercap
-##   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
-## 1 Afghanistan Asia       1952    28.8  8425333      779.
-## 2 Afghanistan Asia       1957    30.3  9240934      821.
-## 3 Afghanistan Asia       1962    32.0 10267083      853.
-## 4 Afghanistan Asia       1967    34.0 11537966      836.
-## 5 Afghanistan Asia       1972    36.1 13079460      740.
-## 6 Afghanistan Asia       1977    38.4 14880372      786.
-```
+Example: The dataframe mtcars has 32 cars.
+---
+class: middle
+# Challenge
+
+
+- Try out a bit of in-line R code.
+
+
+Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+
 
 ---
-** Usar dplyr + ggplot2** - Gapminder dataset
+class: middle
+# Example: adding a graph
 
 ```r
-gapminder %&gt;% 
-  filter(year == 2007) %&gt;% 
-  ggplot(aes(x = lifeExp, y = gdpPercap, color = continent))+
-  geom_point(show.legend = FALSE)+
-  scale_y_log10()+
-  facet_wrap(~continent) +
-  theme_bw() 
+attach(mtcars)
 ```
 
-&lt;img src="index_files/figure-html/unnamed-chunk-21-1.png" style="display: block; margin: auto;" /&gt;
+```
+## The following object is masked from package:ggplot2:
+## 
+##     mpg
+```
+
+```r
+plot(wt, mpg, main="Scatterplot Example",
+xlab="Car Weight ", ylab="Miles Per Gallon ", pch=19)
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-29-1.png" style="display: block; margin: auto;" /&gt;
+---
+class: middle
+# Example: adding a simple table
+
+
+```r
+head(mtcars)
+```
+
+```
+##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+```
+---
+class: middle
+# Example: adding a table
+
+```r
+DT::datatable(head(mtcars, 10),
+  fillContainer = FALSE, options = list(pageLength = 5))
+```
+
+<div id="htmlwidget-8c71566c27b228893f7b" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8c71566c27b228893f7b">{"x":{"filter":"none","fillContainer":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280"],[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2],[6,6,4,6,8,6,8,4,4,6],[160,160,108,258,360,225,360,146.7,140.8,167.6],[110,110,93,110,175,105,245,62,95,123],[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92],[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44],[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3],[0,0,1,1,0,1,0,1,1,1],[1,1,1,0,0,0,0,0,0,0],[4,4,4,3,3,3,3,4,4,4],[4,4,1,1,2,1,4,2,2,4]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+---
+class: middle
+# Adding images using Knitr
+
+Function: `knitr::include_graphics()`
+
+Example:
+
+```r
+knitr::include_graphics("https://www.r-project.org/Rlogo.png")
+```
+
+&lt;img src="https://www.r-project.org/Rlogo.png" width="50%" style="display: block; margin: auto;" /&gt;
+---
+class: middle
+# Adding images using Knitr: Chunk options
+
+- `out.width = "50%"` - size of the image
+
+
+&lt;img src="https://www.r-project.org/Rlogo.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+[KnitR Options](https://yihui.name/knitr/options/#chunk-options)
 
 ---
+class: middle
+#Adding images using Knitr: Chunk options
+
+- **Figure alignment**
+- `fig.align = 'center', 'default', **'left'**,'right'` 
+
+&lt;img src="https://www.r-project.org/Rlogo.png" width="20%" style="display: block; margin: auto auto auto 0;" /&gt;
+
+- `fig.align = 'center', 'default', 'left', **'right' **`
+
+&lt;img src="https://www.r-project.org/Rlogo.png" width="20%" style="display: block; margin: auto 0 auto auto;" /&gt;
+---
+class: middle
+#Adding images using Knitr: Chunk options
+
+- Figure caption
+
+- `fig.cap="R Logo"`
+
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="https://www.r-project.org/Rlogo.png" alt="R Logo" width="50%" /&gt;
+&lt;p class="caption"&gt;R Logo&lt;/p&gt;
+&lt;/div&gt;
+---
+
+class: middle
+# Challenge
+- Add a image 
+
+- Use chunk options to control the size of a figure and to hide the code. 
 
 
 
+Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+---
+class: middle
+# Other output options
+You can also convert R Markdown to a PDF or a Word document. Click the little triangle next to the “Knit HTML” button to get a drop-down menu. Or you could put pdf_document or word_document in the header of the file.
+
+&lt;img src="img/knit.png" width="276" style="display: block; margin: auto;" /&gt;
+
+Tip: Creating PDF documents
+Creating .pdf documents may require installation of TeX. If required this is detailed in an error message.
 
 
 
+Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
 
+
+---
+class: middle
+# Other output options
+
+- You can make presentations using R, RMarkdown and KnitR - Use the package  [Xaringan](https://github.com/yihui/xaringan); (this presentation was made with Xaringan!)
+
+- Rmd compiles in a HTML format. So you can create html pages using this tool. Package **[prettydoc](https://cran.r-project.org/web/packages/prettydoc/vignettes/architect.html)** can help with some themes if  you don't know how to code in HTML and CSS.
+
+
+
+- See the [gallery](https://rmarkdown.rstudio.com/gallery.html) for examples of what you can do with Rmarkdown.
+
+- See more: https://rmarkdown.rstudio.com/index.html
+
+---
+# DEU ERRO NO KNITR!
+
+Calma! É bem comum dar erro ao compliar o arquivo pois **qualquer** código errado causa isso. Algumas coisas pra se observar:
+
+- Yaml header - se algo estiver errado, vai dar erro ao compilar. Muito cuidado com a identação!
+
+- Código nos chunks - teste o Run All Chunks e ver se dá erro em algum específico. Se descobrir, tente verificar o que há de errado no código (pode ser a falta de um parênteses, vírgula, entre outros).
+
+&lt;img src="https://media.giphy.com/media/j9GASQ5ocrIRicnmyq/giphy.gif" width="30%" style="display: block; margin: auto;" /&gt;
+
+---
 # Referências
 
 
@@ -360,6 +765,7 @@ gapminder %&gt;%
 
 - https://beatrizmilz.github.io/talk/oficina_intro_r_ufabc_2018/
 
+- [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
 ... 
 
 
