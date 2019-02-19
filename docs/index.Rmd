@@ -208,20 +208,23 @@ diamonds <- ggplot2::diamonds
 
 
 ---
-# ggplot2 
+### O que é o ggplot2?
 
-- Ã‰ um pacote usado para visualizaÃ§Ã£o de dados.
+- É um pacote usado para visualização de dados.
 
-- Ã‰ uma implementaÃ§Ã£o da Grammar of Graphics de Leland Wilkinson - um esquema geral para visualizaÃ§Ã£o de dados que divide grÃ¡ficos em componentes semÃ¢nticos como escalas e camadas.
+- É uma implementação do Grammar of Graphics de Leland Wilkinson -  um sistema coerente para descrever e construir gráficos. Ou seja, ele foi desenvolvido pautado em vários conceitos estatísticos importantes.
 
-- [Cheatsheet em portuguÃªs](https://www.rstudio.com/wp-content/uploads/2016/03/ggplot2-cheatsheet-portuguese.pdf)
+- [Cheatsheet em português](https://www.rstudio.com/wp-content/uploads/2016/03/ggplot2-cheatsheet-portuguese.pdf)
 
-- Material interessante: [Code Your Graph - A Workshop on Visualizing Your Data with ggplotby Alison Presmanes Hill & Julianne Myers](https://alison.rbind.io/html/jamboree_heart_ggplot.html)
+- **Materiais interessantes:**
+
+  *[Workshop Code Your Graph](https://alison.rbind.io/html/jamboree_heart_ggplot.html)
+
+  *[R for Data Science - capítulos 3 e 28](https://r4ds.had.co.nz/data-visualisation.html)
 
 ```{r echo=FALSE}
 knitr::include_graphics("img/ggplot2.png")
 ```
-
 ---
 
 ** Exemplos passo a passo: Exemplo 1 - geom_bar **
