@@ -226,6 +226,24 @@ diamonds <- ggplot2::diamonds
 knitr::include_graphics("img/ggplot2.png")
 ```
 ---
+# O que é o grammar of graphics?
+  
+  - A ideia básica é que de forma independente podemos 
+especificar  e combinar blocos de construção de um gráfico para criar praticamente 
+qualquer tipo de exibição gráfica desejada. 
+
+- Os blocos de construção (ou camadas)  de um gráfico incluem:
+
+  - data
+  - aesthetic mapping
+  - geometric object
+  - statistical transformations
+  - scales
+  - coordinate system
+  - position adjustments
+  - faceting
+  
+---
 
 ** Exemplos passo a passo: Exemplo 1 - geom_bar **
 ```{r warning=FALSE}
