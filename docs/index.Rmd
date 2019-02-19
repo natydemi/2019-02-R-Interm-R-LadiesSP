@@ -244,6 +244,37 @@ qualquer tipo de exibição gráfica desejada.
   - faceting
   
 ---
+** Exemplos passo a passo - geom_histogram() **
+
+A função ggplot() recebe um data frame e cria o bloco base do gráfico. Se rodarmos somente ela, teremos um painel em branco:
+```{r warning=FALSE}
+
+DT::datatable(head(diamonds), fillContainer = FALSE)
+diamonds <- ggplot2::diamonds
+#ggplot(data = diamonds)
+diamonds %>% ggplot() #usando o pipe
+```
+---
+** Exemplos passo a passo - geom_histogram() **
+
+Porém para construirmos o gráfico precisamos dizer como as observações serão mapeadas nos aspectos visuais do gráfico e quais formas geométricas serão utilizadas para isso. #reescrever esse trecho
+```{r warning=FALSE}
+diamonds %>% ggplot() +
+  geom_histogram(mapping = aes(x = depth))
+
+```
+
+
+---
+** Desafio 1 **
+Plotar a distribuição de frequências da variável price
+```{r warning=FALSE}
+diamonds %>% ggplot() +
+  geom_histogram(mapping = aes(x = price))
+
+```
+
+---
 
 ** Exemplos passo a passo: Exemplo 1 - geom_bar **
 ```{r warning=FALSE}
