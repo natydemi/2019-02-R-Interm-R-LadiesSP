@@ -244,7 +244,7 @@ qualquer tipo de exibição gráfica desejada.
   - faceting
   
 ---
-** Exemplos passo a passo - geom_histogram() **
+** Exemplo passo a passo - geom_histogram() **
 
 A função ggplot() recebe um data frame e cria o bloco base do gráfico. Se rodarmos somente ela, teremos um painel em branco:
 ```{r warning=FALSE}
@@ -255,7 +255,7 @@ diamonds <- ggplot2::diamonds
 diamonds %>% ggplot() #usando o pipe
 ```
 ---
-** Exemplos passo a passo - geom_histogram() **
+** Exemplo passo a passo - geom_histogram() **
 
 Porém para construirmos o gráfico precisamos dizer como as observações serão mapeadas nos aspectos visuais do gráfico e quais formas geométricas serão utilizadas para isso. #reescrever esse trecho
 ```{r warning=FALSE}
@@ -275,45 +275,29 @@ diamonds %>% ggplot() +
 ```
 
 ---
+** Exemplo passo a passo 2: geom_bar **
 
-** Exemplos passo a passo: Exemplo 1 - geom_bar **
+Para variáveis categóricas, ou seja, aquelas que representam uma categoria como qualidade (bom, ruim), sexo(M, F) ou no nosso caso, a qualidade do corte da pedra, podemos usar um gráfico de barras
 ```{r warning=FALSE}
-diamonds %>% ggplot()
+diamonds %>% ggplot() +
+  geom_bar(aes(x=cut))
 ```
 ---
-** Exemplos passo a passo: Exemplo 1 - geom_bar **
+** Exemplo passo a passo 2: geom_bar **
 ```{r warning=FALSE}
-diamonds %>%  ggplot(aes(x=cut))
-```
----
-** Exemplos passo a passo: Exemplo 1 - geom_bar **
-```{r warning=FALSE}
-diamonds %>% ggplot(aes(x=cut))+
-geom_bar()
-```
----
-** Exemplo 1 - geom_bar **
-```{r warning=FALSE}
-diamonds %>% ggplot(aes(x=cut, fill=color))+
-geom_bar()
+diamonds %>% ggplot()+
+  geom_bar(aes(x=cut, fill=color))
 ```
 
 ---
-** Exemplo 1 - geom_bar **
+** Exemplo passo a passo 2: geom_bar **
 ```{r warning=FALSE}
-diamonds %>% ggplot(aes(x=cut, fill=color))+
-geom_bar()+theme_bw()
+diamonds %>% ggplot() + 
+  geom_bar(aes(x=cut, fill=color)) + theme_bw()
 ```
----
 
-```{r warning=FALSE}
-diamonds %>%  ggplot(aes(x=cut, fill=color)) +
-  geom_bar() + theme_bw() +
-  labs(title = "TÃ­tulo do grÃ¡fico", x = "Corte do diamante", 
-    y = "Contagem", fill = "Cor") 
-```
 ---
-
+** Exemplo passo a passo 2: geom_bar **
 ```{r warning=FALSE}
 diamonds %>%  ggplot(aes(x=cut, fill=color)) +
   geom_bar() + theme_bw() +
