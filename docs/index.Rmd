@@ -402,94 +402,93 @@ _Itálico_: `_italics_`
 
 ---
 class: middle
-# Making a bullet list
-You can make a bulleted list by writing a list with hyphens or asterisks, like this:
+# Fazendo uma lista
+Você pode fazer uma lista escrevendo com hífens ou asteriscos, como a seguir:
 
-`* bold with double-asterisks`
+`* negrito com asteriscos duplos`
 
-`* italics with underscores`
+`* itálico com underline`
 
-`* code-type font with backticks`
+`* fonte do tipo código com crase`
 
-or like this:
+ou dessa forma:
 
-`- bold with double-asterisks`
+`- negrito com asteriscos duplos`
 
-`- italics with underscores`
+`- itálico com underline`
 
-`- code-type font with backticks`
+`- fonte do tipo código com crase`
 
-Each will appear as:
+Cada um vai aparecer como:
 
-- bold with double-asterisks
-- italics with underscores
-- code-type font with backticks
+- negrito com asteriscos duplos
+- itálico com underline
+- fonte do tipo código com crase
 
-
-Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
-
-
----
-class: middle
-# Making a numbered list
-You can make a numbered list by just using numbers. You can use the same number over and over if you want:
-
-`1. bold with double-asterisks`
-
-`1. italics with underscores`
-
-`1. code-type font with backticks`
-
-This will appear as:
-
-1. bold with double-asterisks
-1. italics with underscores
-1. code-type font with backticks
-
-
-Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
-
-
+Referência: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
 
 
 ---
 class: middle
-# Compile the RMarkdown
+# Fazendo uma lista enumerada
+Você pode fazer uma lista numerada usando somente números. Você pode usar o mesmo número quantas vezes quiser: 
 
-You compile the R Markdown document to an html webpage by clicking the “Knit HTML” in the upper-left. 
+`1. negrito com asteriscos duplos`
+
+`1. itálico com underline`
+
+`1. fonte do tipo código com crase`
+
+Isso irá aparecer como:
+
+1. negrito com asteriscos duplos
+1. itálico com underline
+1. fonte do tipo código com crase
 
 
-#Challenge
-Create a new R Markdown document. Delete all of the R code chunks and write a bit of Markdown (some sections, some italicized text, and an itemized list).
+Referência: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
 
-Convert the document to a webpage.
 
-You can use the [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) for reference.
 
-Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
 
 ---
 class: middle
-# More on Markdown
+# Compilando o RMarkdown
 
-You can make a hyperlink like this: `[text to show](http://the-web-page.com)`.
+Você compila o documento de RMarkdown para uma página html ao clicar no botão "Knit HTML" in canto superior esquerdo. 
 
-You can include an image file like this: `![caption](http://url/for/file)`
 
-You can do subscripts (e.g., F~2~) with `F~2` and superscripts (e.g., F^2^) with `F^2^`.
+#Desafio
+Crie um novo documento R Markdown. Delete todos os chuncks de código de R e escreva um pouco de Markdown (algumas seções, textos estilizados e lista com itens). 
 
-If you know how to write equations in LaTeX, you’ll be glad to know that you can use $ $ and $$ $$ to insert math equations, like `$E = mc^2$` and
+Converta o documento em uma webpage.
+
+Você pode usar o [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) para referência.
+
+Referência: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+
+---
+class: middle
+# Mais de Markdown
+
+Você pode fazer um hiperlink dessa forma: `[**texto para mostrar**](http://the-web-page.com)`.
+
+Você pode incluir arquivo de imagem dessa forma: `![**título**](http://url/for/file)`
+
+Você pode fazer sobescrito (e.g., F~2~) com `F~2` e superescrito (e.g., F^2^) com `F^2^`.
+
+Se você sabe como escrever equações em LaTeX, ficará feliz em saber que pode usar $ $ e $$ $$ para inserir equações matemáticas, como e `$E = mc^2$`e
 
 $$y = \mu + \sum_{i=1}^p \beta_i x_i + \epsilon$$
 
-Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+Referência: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
 
 ---
 class: middle
-# R Code Chunks
+# Chuncks de Código R
 
-Markdown is interesting and useful, but the real power comes from mixing markdown with chunks of R code.
-This is R Markdown. When processed, the R code will be executed; if they produce figures, the figures will be inserted in the final document.
+Markdown é interessante e útil, mas seu real poder vem da combinação de Markdown com chuncks de códigos em R. 
+Isso  é o Markdown. Quando processado, o código em R será executado; se ele produz figuras, as figuras serão inseridas ao final do documento.
 
 ```{r echo=FALSE, fig.align='center'}
 knitr::include_graphics("img/chunk.png")
@@ -497,92 +496,92 @@ knitr::include_graphics("img/chunk.png")
 
 
 
-- It’s a good idea to give each chunk a name, as they will help you to fix errors and, if any graphs are produced, the file names are based on the name of the code chunk that produced them.
+- É uma boa ideia dar a cada chunck um nome, pois ele podem ajudar a corrigir erros, e, se quaisquer gráficos são produzidos, os nomes dos arquivos serão baseados no nome do chunck de código que os produzirem.
 
 
-Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+Referência: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
 ---
 class: middle
-# How to create a code chunk?
+# Como criar um chunck de código?
 
 ```{r echo=FALSE, fig.align='center'}
 knitr::include_graphics("img/8.PNG")
 ```
  
-Tip: Keyboard shortchut for creating a code chunk is:  `Ctrl + ALt + I`.
+Dica: Atalho do teclado para criar chunks:  `Ctrl + ALt + I`.
 
 
-# Challenge
-Add code chunks to load the dplyr package
- 
+# Desafio
+Adicione chunks de código para carregar o pacote dplyr
+
  
 ---
 class: middle
-# How things get compiled? 
+# Como as coisas são compiladas?
 
-- When you press the “Knit HTML” button, the R Markdown document is processed by knitr and a plain Markdown document is produced (as well as, potentially, a set of figure files): the R code is executed and replaced by both the input and the output; if figures are produced, links to those figures are included.
+- Quando você pressiona o botão “Knit HTML”, o documento R Markdown é processado pelo knitr e um documento Markdown é produzido (como, também, um potencial conjunto de arquivos de figuras): o código em R é executado e substituído pelo input e output; se figuras são produzidas, links para essas figuras serão incluídos.
 
-- The Markdown and figure documents are then processed by the tool pandoc, which converts the Markdown file into an html file, with the figures embedded.
+- A seguir, os documentos Markdown e de figuras  são processados pela ferramenta pandoc, que converte o arquivo Markdown em um arquivo html, com as figuras anexadas.
 
 
 ```{r echo=FALSE, fig.align='center'}
 knitr::include_graphics("img/rmd-15-rmd_to_html_fig-1.png")
 ```
 
-Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+Referência: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
 
 
 ---
 class: middle
-#Chunk options
+#Opções de chunck
 
-There are a variety of options to affect how the code chunks are treated.
+Há uma variedade de opções que podem afetar como os chuncks de código são tratados.
 
-- Use `echo=FALSE` to avoid having the code itself shown.
+- Use `echo=FALSE` para evitar que o próprio código apareça.
 
-- Use `results="hide"` to avoid having any results printed.
+- Use `results="hide"` para evitar que qualquer resultado seja impresso.
 
-- Use `eval=FALSE` to have the code shown but not evaluated.
+- Use `eval=FALSE` para mostrar o código, mas ele não é avaliado.
 
-- Use `warning=FALSE` and `message=FALSE` to hide any warnings or messages produced.
+- Use `warning=FALSE` e `message=FALSE` para ocultar qualquer messagens de avisos produzidas.
 
-- Use `out.width` to control the size of the figures produced (Ex: `out.width = "100%"`.
+- Use `out.width` para controlar o tamanho de figuras produzidas (Ex: `out.width = "100%"`).
 
 
 
-So you might write:
+Assim, você pode escrever:
 
 ```{r echo=FALSE, fig.align='center'}
 knitr::include_graphics("img/chunk_load_libraries.png")
 ```
  
-Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+Referência: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
  
 ---
 class: middle
-# Chunk global options
-Often there will be particular options that you’ll want to use repeatedly; for this, you can set global chunk options, like so:
+# Opções globais de chunck
+Muitas vezes, haverá algumas opções que você irá querer repetir seu uso; para isso, você pode configurar as opções globais de chinck, como:  
 
 
 ```{r echo=FALSE, fig.align='center'}
 knitr::include_graphics("img/chunk_global_options.png")
 ```
 
-The `fig.path` option defines where the figures will be saved. The `/` here is really important; without it, the figures would be saved in the standard place but just with names that begin with Figs.
+A opção `fig.path` define onde as figuras serão salvas. A `/` é importante, pois sem ela, as figuras seriam salvas no local padroã, mas só com nomes que começam com Figs. 
 
 
 
-Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+Referência: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
 
 ---
 class: middle
 # Inline R code
-You can make every number in your report reproducible.
+Você pode fazer com que todo número em seu relatório seja reproduzível. 
 
 ```{r}
-#Use `r and ` for an in-line code chunk . 
-#The code will be executed and 
-#replaced with the value of the result.
+#Use `r e ` para um in-line code chunk . 
+#O código será executado e
+#substituído com o valor do resultado.
 
 ```
 
@@ -598,81 +597,81 @@ Ex:
 
 `r round(3.14159265359, 2)`
 
-Don’t let these in-line chunks get split across lines.
+Não deixe que esse chunck in-line seja separado através das linhas.
 
  
 
-Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+Referência: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
 ---
 class: middle
 # Inline R code
-Another example:
+Outro examplo:
 ```{r eval=FALSE, include=TRUE}
-# The dataframe mtcars has `r nrow(mtcars)` cars. 
+# O dataframe mtcars possui `r nrow(mtcars)` carros. 
 ```
 
-Example: The dataframe mtcars has `r nrow(mtcars)` cars.
+Exemplo: O dataframe mtcars possui `r nrow(mtcars)` carros.
 ---
 class: middle
-# Challenge
+# Desafio
 
 
-- Try out a bit of in-line R code.
+- Tente um pouco de código R in-line.
 
 
-Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+Referência: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
 
 
 ---
 class: middle
-# Example: adding a graph
+# Exemplo: adicionando um gráfico
 ```{r}
 attach(mtcars)
-plot(wt, mpg, main="Scatterplot Example",
-xlab="Car Weight ", ylab="Miles Per Gallon ", pch=19)
+plot(wt, mpg, main="Exemplo de Gráfico de Dispersão",
+xlab="Peso do Carro ", ylab="Milhas Por Galão ", pch=19)
 ```
 ---
 class: middle
-# Example: adding a simple table
+# Exemplo: adicionando uma tabela simples
 
 ```{r }
 head(mtcars)
 ```
 ---
 class: middle
-# Example: adding a table
+# Exemplo: adicionando uma tabela
 ```{r}
 DT::datatable(head(mtcars, 10),
   fillContainer = FALSE, options = list(pageLength = 5))
 ```
 ---
 class: middle
-# Adding images using Knitr
+# Adicionando imagens usando o Knitr
 
-Function: `knitr::include_graphics()`
+Função: `knitr::include_graphics()`
 
-Example:
+Exemplo:
 ```{r  out.width = "50%"}
 knitr::include_graphics("https://www.r-project.org/Rlogo.png")
 ```
 ---
 class: middle
-# Adding images using Knitr: Chunk options
+# Adicionando imagens usando Knitr: opções de Chunk 
 
-- `out.width = "50%"` - size of the image
+- `out.width = "50%"` - tamanho da imagem
 
 
 ```{r echo=FALSE, out.width = "50%"}
 knitr::include_graphics("https://www.r-project.org/Rlogo.png")
 ```
 
-[KnitR Options](https://yihui.name/knitr/options/#chunk-options)
+[Opções do KnitR](https://yihui.name/knitr/options/#chunk-options)
 
 ---
 class: middle
-#Adding images using Knitr: Chunk options
+#Adicionando imagens usando Knitr: opções de Chunk 
 
-- **Figure alignment**
+- **Alinhamento da figura**
 - `fig.align = 'center', 'default', **'left'**,'right'` 
 
 ```{r echo=FALSE,  out.width="20%", fig.align='left'} 
@@ -686,11 +685,11 @@ knitr::include_graphics("https://www.r-project.org/Rlogo.png")
 ```
 ---
 class: middle
-#Adding images using Knitr: Chunk options
+#Adicionando imagens usando Knitr: opções de Chunk 
 
-- Figure caption
+- Legenda de figura 
 
-- `fig.cap="R Logo"`
+- `fig.cap="Logo R"`
 
 
 ```{r echo=FALSE,  out.width="50%", fig.cap="R Logo", fig.align='center'}
@@ -699,44 +698,49 @@ knitr::include_graphics("https://www.r-project.org/Rlogo.png")
 ---
 
 class: middle
-# Challenge
-- Add a image 
+# Desafio
+- Adicionar imagem 
 
-- Use chunk options to control the size of a figure and to hide the code. 
+- Usar opções de chunk para controlar o tamanho da figura e para esconder o código. 
 
 
 
-Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+Refêrencia: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
 ---
 class: middle
-# Other output options
-You can also convert R Markdown to a PDF or a Word document. Click the little triangle next to the “Knit HTML” button to get a drop-down menu. Or you could put pdf_document or word_document in the header of the file.
+# Outras opções de saída
+Você também pode converter o R Markdown para PDF ou um documento Word. Clique no pequeno triângulo próximo ao botão "Knit HTML" para aparecer um menu. Ou você pode colocar pdf_document ou word_document ino cabeçalho do arquivo.
 
 ```{r echo=FALSE, fig.align='center'}
 knitr::include_graphics("img/knit.png")
 ```
 
-Tip: Creating PDF documents
-Creating .pdf documents may require installation of TeX. If required this is detailed in an error message.
+Dica: Criando documentos em PDF
+Criando documentos em .pdf pode requerer a instalação de TeX. Se pedido, isso é detalhado numa mensagem de erro..
 
 
 
-Reference: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+Referência: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
 
+---
+#Desafio
+- Use o que aprendeu sobre RMarkdown e crie um pequeno relatório das atividades que fizemos hoje!
+
+- O [Cheat Sheet do RMarkdown](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) pode te ajudar!
 
 ---
 class: middle
-# Other output options
+# Outras opções de saída
 
-- You can make presentations using R, RMarkdown and KnitR - Use the package  [Xaringan](https://github.com/yihui/xaringan); (this presentation was made with Xaringan!)
+- Você pode fazer apresentações usando R, RMarkdown e KnitR - Use o pacote  [Xaringan](https://github.com/yihui/xaringan); (essa apresentação foi feita com Xaringan!)
 
-- Rmd compiles in a HTML format. So you can create html pages using this tool. Package **[prettydoc](https://cran.r-project.org/web/packages/prettydoc/vignettes/architect.html)** can help with some themes if  you don't know how to code in HTML and CSS.
+- Rmd compila em um formato HTML. Entoã você pode criar páginas html usando essa ferramenta. O pacote **[prettydoc](https://cran.r-project.org/web/packages/prettydoc/vignettes/architect.html)** cpode ajudar com alguns temas se você não sabe prgramar em HTML e CSS.
 
 
 
-- See the [gallery](https://rmarkdown.rstudio.com/gallery.html) for examples of what you can do with Rmarkdown.
+- Veja a [galeria](https://rmarkdown.rstudio.com/gallery.html) for examples of what you can do with Rmarkdown.
 
-- See more: https://rmarkdown.rstudio.com/index.html
+- Veja mais: https://rmarkdown.rstudio.com/index.html
 
 ---
 # DEU ERRO NO KNITR!
