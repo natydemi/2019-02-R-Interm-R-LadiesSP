@@ -2,6 +2,7 @@
 title: "Oficina de R - Intermedi√°rio"
 subtitle: "R-Ladies S√£o Paulo"
 date: "23/02/2019"
+encoding: "UTF-8"
 output:
   xaringan::moon_reader:
     chakra: libs/remark-latest.min.js
@@ -208,31 +209,31 @@ diamonds <- ggplot2::diamonds
 
 
 ---
-### O que È o ggplot2?
+### O que ? o ggplot2?
 
-- … um pacote usado para visualizaÁ„o de dados.
+- ? um pacote usado para visualiza??o de dados.
 
-- … uma implementaÁ„o do Grammar of Graphics de Leland Wilkinson -  um sistema coerente para descrever e construir gr·ficos. Ou seja, ele foi desenvolvido pautado em v·rios conceitos estatÌsticos importantes.
+- ? uma implementa??o do Grammar of Graphics de Leland Wilkinson -  um sistema coerente para descrever e construir gr?ficos. Ou seja, ele foi desenvolvido pautado em v?rios conceitos estat?sticos importantes.
 
-- [Cheatsheet em portuguÍs](https://www.rstudio.com/wp-content/uploads/2016/03/ggplot2-cheatsheet-portuguese.pdf)
+- [Cheatsheet em portugu?s](https://www.rstudio.com/wp-content/uploads/2016/03/ggplot2-cheatsheet-portuguese.pdf)
 
 - **Materiais interessantes:**
 
   *[Workshop Code Your Graph](https://alison.rbind.io/html/jamboree_heart_ggplot.html)
 
-  *[R for Data Science - capÌtulos 3 e 28](https://r4ds.had.co.nz/data-visualisation.html)
+  *[R for Data Science - cap?tulos 3 e 28](https://r4ds.had.co.nz/data-visualisation.html)
 
 ```{r echo=FALSE}
 knitr::include_graphics("img/ggplot2.png")
 ```
 ---
-# O que È o grammar of graphics?
+# O que ? o grammar of graphics?
   
-  - A ideia b·sica È que de forma independente podemos 
-especificar  e combinar blocos de construÁ„o de um gr·fico para criar praticamente 
-qualquer tipo de exibiÁ„o gr·fica desejada. 
+  - A ideia b?sica ? que de forma independente podemos 
+especificar  e combinar blocos de constru??o de um gr?fico para criar praticamente 
+qualquer tipo de exibi??o gr?fica desejada. 
 
-- Os blocos de construÁ„o (ou camadas)  de um gr·fico incluem:
+- Os blocos de constru??o (ou camadas)  de um gr?fico incluem:
 
   - data
   - aesthetic mapping
@@ -246,7 +247,7 @@ qualquer tipo de exibiÁ„o gr·fica desejada.
 ---
 ** Exemplo passo a passo - geom_histogram() **
 
-A funÁ„o ggplot() recebe um data frame e cria o bloco base do gr·fico. Se rodarmos somente ela, teremos um painel em branco:
+A fun??o ggplot() recebe um data frame e cria o bloco base do gr?fico. Se rodarmos somente ela, teremos um painel em branco:
 ```{r warning=FALSE}
 
 DT::datatable(head(diamonds), fillContainer = FALSE)
@@ -257,7 +258,7 @@ diamonds %>% ggplot() #usando o pipe
 ---
 ** Exemplo passo a passo - geom_histogram() **
 
-PorÈm para construirmos o gr·fico precisamos dizer como as observaÁıes ser„o mapeadas nos aspectos visuais do gr·fico e quais formas geomÈtricas ser„o utilizadas para isso. #reescrever esse trecho
+Por?m para construirmos o gr?fico precisamos dizer como as observa??es ser?o mapeadas nos aspectos visuais do gr?fico e quais formas geom?tricas ser?o utilizadas para isso. #reescrever esse trecho
 ```{r warning=FALSE}
 diamonds %>% ggplot() +
   geom_histogram(mapping = aes(x = depth))
@@ -267,7 +268,7 @@ diamonds %>% ggplot() +
 
 ---
 ** Desafio 1 **
-Plotar a distribuiÁ„o de frequÍncias da vari·vel price
+Plotar a distribui??o de frequ?ncias da vari?vel price
 ```{r warning=FALSE}
 diamonds %>% ggplot() +
   geom_histogram(mapping = aes(x = price))
@@ -277,7 +278,7 @@ diamonds %>% ggplot() +
 ---
 ** Exemplo passo a passo 2: geom_bar **
 
-Para vari·veis categÛricas, ou seja, aquelas que representam uma categoria como qualidade (bom, ruim), sexo(M, F) ou no nosso caso, a qualidade do corte da pedra, podemos usar um gr·fico de barras
+Para vari?veis categ?ricas, ou seja, aquelas que representam uma categoria como qualidade (bom, ruim), sexo(M, F) ou no nosso caso, a qualidade do corte da pedra, podemos usar um gr?fico de barras
 ```{r warning=FALSE}
 diamonds %>% ggplot() +
   geom_bar(aes(x=cut))

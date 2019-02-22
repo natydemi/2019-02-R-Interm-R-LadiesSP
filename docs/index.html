@@ -192,8 +192,8 @@ library(ggplot2)
 DT::datatable(head(diamonds), fillContainer = FALSE)
 ```
 
-<div id="htmlwidget-924997066e5f54aa2226" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-924997066e5f54aa2226">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6"],[0.23,0.21,0.23,0.29,0.31,0.24],["Ideal","Premium","Good","Premium","Good","Very Good"],["E","E","E","I","J","J"],["SI2","SI1","VS1","VS2","SI2","VVS2"],[61.5,59.8,56.9,62.4,63.3,62.8],[55,61,65,58,58,57],[326,326,327,334,335,336],[3.95,3.89,4.05,4.2,4.34,3.94],[3.98,3.84,4.07,4.23,4.35,3.96],[2.43,2.31,2.31,2.63,2.75,2.48]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>carat<\/th>\n      <th>cut<\/th>\n      <th>color<\/th>\n      <th>clarity<\/th>\n      <th>depth<\/th>\n      <th>table<\/th>\n      <th>price<\/th>\n      <th>x<\/th>\n      <th>y<\/th>\n      <th>z<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,5,6,7,8,9,10]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-ab1ac8e39ae63b5f0ba5" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ab1ac8e39ae63b5f0ba5">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6"],[0.23,0.21,0.23,0.29,0.31,0.24],["Ideal","Premium","Good","Premium","Good","Very Good"],["E","E","E","I","J","J"],["SI2","SI1","VS1","VS2","SI2","VVS2"],[61.5,59.8,56.9,62.4,63.3,62.8],[55,61,65,58,58,57],[326,326,327,334,335,336],[3.95,3.89,4.05,4.2,4.34,3.94],[3.98,3.84,4.07,4.23,4.35,3.96],[2.43,2.31,2.31,2.63,2.75,2.48]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>carat<\/th>\n      <th>cut<\/th>\n      <th>color<\/th>\n      <th>clarity<\/th>\n      <th>depth<\/th>\n      <th>table<\/th>\n      <th>price<\/th>\n      <th>x<\/th>\n      <th>y<\/th>\n      <th>z<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,5,6,7,8,9,10]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 
 ```r
 diamonds &lt;- ggplot2::diamonds
@@ -215,29 +215,29 @@ diamonds &lt;- ggplot2::diamonds
 
 
 ---
-### O que &lt;e9&gt; o ggplot2?
+### O que ? o ggplot2?
 
-- &lt;c9&gt; um pacote usado para visualiza&lt;e7&gt;&lt;e3&gt;o de dados.
+- ? um pacote usado para visualiza??o de dados.
 
-- &lt;c9&gt; uma implementa&lt;e7&gt;&lt;e3&gt;o do Grammar of Graphics de Leland Wilkinson -  um sistema coerente para descrever e construir gr&lt;e1&gt;ficos. Ou seja, ele foi desenvolvido pautado em v&lt;e1&gt;rios conceitos estat&lt;ed&gt;sticos importantes.
+- ? uma implementa??o do Grammar of Graphics de Leland Wilkinson -  um sistema coerente para descrever e construir gr?ficos. Ou seja, ele foi desenvolvido pautado em v?rios conceitos estat?sticos importantes.
 
-- [Cheatsheet em portugu&lt;ea&gt;s](https://www.rstudio.com/wp-content/uploads/2016/03/ggplot2-cheatsheet-portuguese.pdf)
+- [Cheatsheet em portugu?s](https://www.rstudio.com/wp-content/uploads/2016/03/ggplot2-cheatsheet-portuguese.pdf)
 
 - **Materiais interessantes:**
 
   *[Workshop Code Your Graph](https://alison.rbind.io/html/jamboree_heart_ggplot.html)
 
-  *[R for Data Science - cap&lt;ed&gt;tulos 3 e 28](https://r4ds.had.co.nz/data-visualisation.html)
+  *[R for Data Science - cap?tulos 3 e 28](https://r4ds.had.co.nz/data-visualisation.html)
 
 &lt;img src="img/ggplot2.png" width="241" style="display: block; margin: auto;" /&gt;
 ---
-# O que &lt;e9&gt; o grammar of graphics?
+# O que ? o grammar of graphics?
   
-  - A ideia b&lt;e1&gt;sica &lt;e9&gt; que de forma independente podemos 
-especificar  e combinar blocos de constru&lt;e7&gt;&lt;e3&gt;o de um gr&lt;e1&gt;fico para criar praticamente 
-qualquer tipo de exibi&lt;e7&gt;&lt;e3&gt;o gr&lt;e1&gt;fica desejada. 
+  - A ideia b?sica ? que de forma independente podemos 
+especificar  e combinar blocos de constru??o de um gr?fico para criar praticamente 
+qualquer tipo de exibi??o gr?fica desejada. 
 
-- Os blocos de constru&lt;e7&gt;&lt;e3&gt;o (ou camadas)  de um gr&lt;e1&gt;fico incluem:
+- Os blocos de constru??o (ou camadas)  de um gr?fico incluem:
 
   - data
   - aesthetic mapping
@@ -251,14 +251,14 @@ qualquer tipo de exibi&lt;e7&gt;&lt;e3&gt;o gr&lt;e1&gt;fica desejada.
 ---
 ** Exemplo passo a passo - geom_histogram() **
 
-A fun&lt;e7&gt;&lt;e3&gt;o ggplot() recebe um data frame e cria o bloco base do gr&lt;e1&gt;fico. Se rodarmos somente ela, teremos um painel em branco:
+A fun??o ggplot() recebe um data frame e cria o bloco base do gr?fico. Se rodarmos somente ela, teremos um painel em branco:
 
 ```r
 DT::datatable(head(diamonds), fillContainer = FALSE)
 ```
 
-<div id="htmlwidget-a272397d113a17db1f95" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a272397d113a17db1f95">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6"],[0.23,0.21,0.23,0.29,0.31,0.24],["Ideal","Premium","Good","Premium","Good","Very Good"],["E","E","E","I","J","J"],["SI2","SI1","VS1","VS2","SI2","VVS2"],[61.5,59.8,56.9,62.4,63.3,62.8],[55,61,65,58,58,57],[326,326,327,334,335,336],[3.95,3.89,4.05,4.2,4.34,3.94],[3.98,3.84,4.07,4.23,4.35,3.96],[2.43,2.31,2.31,2.63,2.75,2.48]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>carat<\/th>\n      <th>cut<\/th>\n      <th>color<\/th>\n      <th>clarity<\/th>\n      <th>depth<\/th>\n      <th>table<\/th>\n      <th>price<\/th>\n      <th>x<\/th>\n      <th>y<\/th>\n      <th>z<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,5,6,7,8,9,10]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-64ad1459740adb72242c" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-64ad1459740adb72242c">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6"],[0.23,0.21,0.23,0.29,0.31,0.24],["Ideal","Premium","Good","Premium","Good","Very Good"],["E","E","E","I","J","J"],["SI2","SI1","VS1","VS2","SI2","VVS2"],[61.5,59.8,56.9,62.4,63.3,62.8],[55,61,65,58,58,57],[326,326,327,334,335,336],[3.95,3.89,4.05,4.2,4.34,3.94],[3.98,3.84,4.07,4.23,4.35,3.96],[2.43,2.31,2.31,2.63,2.75,2.48]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>carat<\/th>\n      <th>cut<\/th>\n      <th>color<\/th>\n      <th>clarity<\/th>\n      <th>depth<\/th>\n      <th>table<\/th>\n      <th>price<\/th>\n      <th>x<\/th>\n      <th>y<\/th>\n      <th>z<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,5,6,7,8,9,10]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 
 ```r
 diamonds &lt;- ggplot2::diamonds
@@ -270,7 +270,7 @@ diamonds %&gt;% ggplot() #usando o pipe
 ---
 ** Exemplo passo a passo - geom_histogram() **
 
-Por&lt;e9&gt;m para construirmos o gr&lt;e1&gt;fico precisamos dizer como as observa&lt;e7&gt;&lt;f5&gt;es ser&lt;e3&gt;o mapeadas nos aspectos visuais do gr&lt;e1&gt;fico e quais formas geom&lt;e9&gt;tricas ser&lt;e3&gt;o utilizadas para isso. #reescrever esse trecho
+Por?m para construirmos o gr?fico precisamos dizer como as observa??es ser?o mapeadas nos aspectos visuais do gr?fico e quais formas geom?tricas ser?o utilizadas para isso. #reescrever esse trecho
 
 ```r
 diamonds %&gt;% ggplot() +
@@ -286,7 +286,7 @@ diamonds %&gt;% ggplot() +
 
 ---
 ** Desafio 1 **
-Plotar a distribui&lt;e7&gt;&lt;e3&gt;o de frequ&lt;ea&gt;ncias da vari&lt;e1&gt;vel price
+Plotar a distribui??o de frequ?ncias da vari?vel price
 
 ```r
 diamonds %&gt;% ggplot() +
@@ -302,7 +302,7 @@ diamonds %&gt;% ggplot() +
 ---
 ** Exemplo passo a passo 2: geom_bar **
 
-Para vari&lt;e1&gt;veis categ&lt;f3&gt;ricas, ou seja, aquelas que representam uma categoria como qualidade (bom, ruim), sexo(M, F) ou no nosso caso, a qualidade do corte da pedra, podemos usar um gr&lt;e1&gt;fico de barras
+Para vari?veis categ?ricas, ou seja, aquelas que representam uma categoria como qualidade (bom, ruim), sexo(M, F) ou no nosso caso, a qualidade do corte da pedra, podemos usar um gr?fico de barras
 
 ```r
 diamonds %&gt;% ggplot() +
@@ -694,8 +694,8 @@ DT::datatable(head(mtcars, 10),
   fillContainer = FALSE, options = list(pageLength = 5))
 ```
 
-<div id="htmlwidget-8341bcba9ccc6c83f616" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8341bcba9ccc6c83f616">{"x":{"filter":"none","fillContainer":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280"],[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2],[6,6,4,6,8,6,8,4,4,6],[160,160,108,258,360,225,360,146.7,140.8,167.6],[110,110,93,110,175,105,245,62,95,123],[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92],[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44],[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3],[0,0,1,1,0,1,0,1,1,1],[1,1,1,0,0,0,0,0,0,0],[4,4,4,3,3,3,3,4,4,4],[4,4,1,1,2,1,4,2,2,4]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-debe0bc2751d22bd4654" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-debe0bc2751d22bd4654">{"x":{"filter":"none","fillContainer":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280"],[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2],[6,6,4,6,8,6,8,4,4,6],[160,160,108,258,360,225,360,146.7,140.8,167.6],[110,110,93,110,175,105,245,62,95,123],[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92],[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44],[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3],[0,0,1,1,0,1,0,1,1,1],[1,1,1,0,0,0,0,0,0,0],[4,4,4,3,3,3,3,4,4,4],[4,4,1,1,2,1,4,2,2,4]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 ---
 class: middle
 # Adding images using Knitr
