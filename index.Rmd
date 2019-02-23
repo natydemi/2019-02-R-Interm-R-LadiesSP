@@ -620,7 +620,7 @@ pmap(list(x, y, z), sum)
 
 
 ---
-# purrr - map %>% glimpse()
+# purrr - possibilidades
 
 > o **map()** sempre retorna uma lista, mas você pode:
 
@@ -643,7 +643,7 @@ pmap(list(x, y, z), sum)
 
 
 ---
-# purrr - possibilidades
+# purrr - aplicações
 
 > faça para 1, crie a receita, faça para todos!
 
