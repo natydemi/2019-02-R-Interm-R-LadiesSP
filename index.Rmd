@@ -1,0 +1,1487 @@
+---
+title: "Oficina de R - Intermediário"
+subtitle: "R-Ladies São Paulo <br> <br> [bit.ly/rladiesSP6](http://bit.ly/rladiesSP6)"
+date: "23/02/2019"
+encoding: "UTF-8"
+output:
+  xaringan::moon_reader:
+    chakra: libs/remark-latest.min.js
+    css: [default, rladies, robot-fonts]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE, fig.align = "center")
+```
+
+```{css, echo=FALSE}
+#pre {
+ # max-width: 100%;
+  #overflow-x: scroll;
+      height: 100%;
+      overflow-y: scroll;
+#}
+```
+
+class:  center, middle
+
+##Organização e realização:
+```{r echo=FALSE, fig.align='center', out.width="15%"}
+knitr::include_graphics("img/rladies.jpeg")
+```
+[R-Ladies São Paulo](https://www.meetup.com/R-Ladies-Sao-Paulo)
+
+##Apoio:
+
+```{r echo=FALSE, fig.align='center', out.width="50%"}
+knitr::include_graphics("img/loggi.png")
+```
+
+[Loggi](https://www.loggi.com/)
+
+---
+class:  center, middle
+# O que é o R-Ladies?
+
+R-Ladies é uma organização mundial que promove a diversidade de gênero na comunidade da linguagem R.
+R-Ladies São Paulo integra, orgulhosamente, a organização R-Ladies Global, em São Paulo.
+
+# Como?
+
+Através de meetups e mentorias em um ambiente seguro e amigável.
+
+Nosso principal objetivo é promover a linguagem computacional estatística R compartilhando conhecimento, assim, quem tiver interesse na linguagem será bem-vinda, independente do nível de conhecimento. 
+
+
+Fonte: [About us - R-Ladies](https://rladies.org/about-us/), [Meetup R-Ladies São Paulo](https://www.meetup.com/R-Ladies-Sao-Paulo/)
+
+---
+class:   center, middle
+# Para quem?
+Nosso principal público-alvo são as pessoas que se identificam com o gênero feminino, portanto, mulheres cis, mulheres trans, bem como pessoas não-binárias e queer.
+
+# Missão
+
+Como uma iniciativa de diversidade, a missão das R-Ladies é alcançar uma representação proporcional de pessoas de gêneros atualmente sub-representados na comunidade R, incentivando, inspirando e caacitando-as.
+
+
+
+Fonte: [About us - R-Ladies](https://rladies.org/about-us/), [Meetup R-Ladies São Paulo](https://www.meetup.com/R-Ladies-Sao-Paulo/)
+
+---
+class:   center, middle
+## Como o R-Ladies começou?
+```{r echo=FALSE, fig.align='center', out.width="20%"}
+knitr::include_graphics("img/gabriela.jpeg")
+```
+**[Gabriela de Queiroz](https://github.com/gdequeiroz)** fundou o R-Ladies no dia **1 de outubro de 2012**. Ela queria retribuir à comunidade depois de ir a vários encontros e aprender muito de graça. O primeiro encontro R-Ladies foi realizado em ** San Francisco, Califórnia (Estados Unidos) **. Nos anos seguintes, mais capítulos do R-Ladies começaram em todo o mundo.
+
+Fonte: [About us - R-Ladies](https://rladies.org/about-us/history/)
+
+
+---
+class:center, middle
+
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("img/shiny2.png")
+```
+
+
+Fonte: [R-Ladies Shiny App](https://gqueiroz.shinyapps.io/rshinylady/)  (26/01/2019)
+---
+class:   center, middle
+# Código de conduta
+
+
+O R-Ladies dedica-se a proporcionar uma experiência livre de assédio para todos. Não toleramos nenhuma forma de assédio aos participantes.
+
+
+[Código de conduta - R-Ladies](https://github.com/rladies/starter-kit/wiki/Code-of-Conduct#portuguese)
+
+
+---
+class:  center, middle
+# Como saber mais?
+
+[Meetup](https://www.meetup.com/pt-BR/R-Ladies-Sao-Paulo)
+
+Twitter: [@RLadiesGlobal](https://twitter.com/rladiesglobal)
+
+Website: [https://rladies.org/](https://rladies.org/)
+
+R-Ladies LATAM Blog (Latin America) - Em breve!
+
+
+[R-Ladies - How do get involved](https://rladies.org/about-us/help/)
+
+---
+class:   center, middle
+
+# R-Ladies São Paulo
+
+
+```{r echo=FALSE, fig.align='center', out.width="70%"}
+knitr::include_graphics("img/1meetupsp.jpeg")
+```
+**Primero Meetup R-Ladies em São Paulo - Agosto/2018**
+
+
+---
+class:   middle
+# Cronograma de hoje
+
+## Manhã:
+- Revisão - O que é o tidyverse e dplyr
+- Introdução ao purrr
+- Introdução ao ggplot2 
+
+## Tarde:
+
+- Introdução ao ggplot2 
+- Introdução ao RMarkdown
+---
+class:   middle, center
+# Tidyverse
+---
+
+### Relembrando: O Tidyverse
+
+É uma coleção de pacotes R projetados para a ciência de dados. Todos os pacotes compartilham uma mesma filosofia de desenvolvimento, sintaxe e estruturas de dados.
+
+```{r eval=FALSE, include=TRUE}
+install.packages("tidyverse") #para instalar o tidyverse
+library(tidyverse) #para utilizar o tidyverse
+```
+
+```{r echo=FALSE, fig.align='center', out.width="60%"}
+knitr::include_graphics("img/Tidyverse_packages.png")
+```
+
+---
+
+### Pacotes do Tidyverse
+
+- **ggplot2**: cria gráficos <br></br>
+- **dplyr**: manipulação de dados <br></br>
+- **tidyr**: arruma os dados <br></br>
+- **readr**: leitura dos dados <br></br>
+- **purrr**: ferramentas para programação funcional, trabalha com funções e vetores <br></br>
+- **tibble**: dataframes moderno, mais simples de manipular <br></br>
+- **magrittr**: facilita a escrita e leitura do código <br></br>
+- **stringr**: trabalha com strings <br></br>
+- **forcats**: trabalha com fatores <br></br>
+- **lubridate**: trabalha com datas
+
+---
+
+### dplyr
+
+A ideia do pacote **dplyr** é tornar a manipulação de dados explícita utilizando verbos que indicam a ação a ser realizada. 
+
+O encadeamento dos verbos com o banco de dados é realizado com o operador **pipe**: **%>%**
+
+O dplyr foi desenhado para trabalhar com o operator pipe **%>%** do pacote magritrr.
+
+---
+
+### Pipe (%>%)
+
+**Atalho**: CTRL + SHIFT + M
+
+Pense no Pipe %>% como um operador que aplica as operações à direita nos valores que estão à esquerda.
+
+**Exemplo:**
+
+gosta_de_melancia <- df_turma_da_monica %>% 
+                      filter(personagem == "Magali")
+                      
+No código acima, temos um objeto chamado **gosta_de_melancia**, um dataset chamado **df_turma_da_monica** e uma operação de **filtro**.
+
+À direita do Pipe temos: filter(personagem == "Magali")
+
+À esquerda do Pipe temos: df_turma_da_monica
+
+Portanto, será aplicado o filtro personagem == "Magali" no dataset df_turma_da_monica. E o resultado dessa operação será atribuída ao objeto gosta_de_melancia.
+
+---
+
+### Importação de arquivos
+
+```{r, message=FALSE}
+library(tidyverse)
+
+# Uma outra opção é carregar somente o(s) pacote(s) que irá utilizar.
+#library(dplyr)
+
+# Importa o arquivo csv para o objeto df_titanic
+df_titanic <- read_csv("data/titanic.csv")
+
+```
+
+---
+
+### View e glimpse
+
+- Para visualizar um objeto: **View**(nome-do-objeto)
+
+- **glimpse()**: mostra informações como o número de observações (linhas) e variáveis (colunas), o nome das colunas, o tipo delas e os primeiros dados de cada coluna.
+
+```{r}
+df_titanic %>% glimpse()
+```
+
+---
+
+
+### Relembrando: Os 6 verbos do dplyr 
+
+- **filter**(): seleciona linhas
+
+- **arrange**(): ordena de acordo com uma ou mais colunas 
+
+- **select**(): seleciona colunas 
+
+- **mutate**(): cria/modifica colunas 
+
+- **summarise**(): sumariza/agrega colunas
+
+- **group_by**(): agrupa colunas
+
+---
+
+# filter
+
+Selecionar linhas da base de dados.
+
+```{r}
+# Seleciona os sobreviventes.
+df_titanic %>% filter(sobreviveu == "sim")
+```
+
+---
+
+# arrange
+
+Ordenar as linhas da base de dados conforme uma ou mais variáveis.
+
+```{r}
+# Ordena por ordem crescente da coluna nome.
+passageiros_ordenados <- df_titanic %>% arrange(nome)
+passageiros_ordenados
+```
+
+---
+
+# arrange 
+
+É possível ordenar na ordem descrescente e também por mais de uma variável.
+
+```{r}
+# Ordena por ordem decrescente de idade e por ordem crescente de nome.
+passageiros_ordenados <- df_titanic %>% arrange(desc(idade), nome)
+passageiros_ordenados
+```
+
+---
+
+# filter & arrange
+
+```{r}
+# Filtra os sobreviventes homens e ordena por classe.
+df_titanic  %>% 
+  filter(sexo == "masculino" & sobreviveu == "sim") %>% 
+  arrange(classe)
+```
+
+---
+
+# select
+
+Selecionar colunas (variáveis) da base de dados.
+
+```{r}
+# Seleciona as colunas indicadas.
+df_titanic %>% select(nome, idade, classe, embarque)
+```
+
+---
+
+# select
+
+O select tem várias funções úteis, como por exemplo:
+
+- **starts_with**("cla"): seleciona colunas que começam com "cla" <br></br>
+- **ends_with**("ifa"): seleciona colunas que terminam com "ifa" <br></br>
+- **contains**("ssa"): seleciona colunas que contêm "ssa" <br></br>
+
+---
+
+# select
+
+```{r}
+# Seleciona as colunas que começam com "id".
+df_titanic %>%  select(starts_with("id"))
+```
+
+---
+
+# select
+
+Ao inserir o caracter **-** na frente da coluna, você estará excluindo as colunas da seleção.
+
+```{r}
+df_titanic %>%  select(-id_passageiro, -nome)
+```
+
+---
+
+# mutate
+
+Criar ou modificar colunas de uma base de dados.
+
+Supondo que o valor da tarifa no dataset está em libras, e que 1£ = R$ 4.93, vamos descobrir qual é o valor das tarifas em reais.
+
+```{r}
+# Calcula a coluna tarifa para o valor da tarifa em reais e 
+# atribui ao objeto tarifa_conversao, 
+# o df_titanic e a coluna tarifa já calculada. 
+# Importante: neste caso a coluna tarifa do df_titanic não é alterada.
+tarifa_conversao <- df_titanic %>% mutate(tarifa = tarifa * 4.93)
+```
+
+```{r}
+# Cria uma nova variável chamada tarifa_real e
+# atribui ao objeto tarifa_conversao o df_titanic e 
+# mais a nova coluna tarifa_real.
+# Importante: neste caso não é criado uma nova coluna no df_titanic.
+tarifa_conversao <- df_titanic %>% mutate(tarifa_real = tarifa * 4.93)
+```
+
+---
+
+# summarize
+
+Sumariza colunas da base de dados, ou seja, resume os valores das colunas em um só valor,
+podendo ser a média, mediana, min, max, etc.
+
+```{r}
+# Calcula a média da variável idade
+# na.rm = TRUE remove os NAs
+df_titanic %>% summarize(mean(idade, na.rm=TRUE))
+
+```
+
+---
+
+# group_by + summarize
+
+Agrupa as colunas de uma base de dados. 
+
+O group_by é bastante utilizado com o summarize.
+
+```{r}
+# Agrupa pela variável sobreviveu e 
+# calcula o número de passageiros por grupo (sim/nao).
+# A função n() mostra o número de linhas em cada grupo.
+df_titanic %>% 
+  group_by(sobreviveu) %>% 
+  summarize(num_passageiros = n())
+```
+
+
+
+
+---
+# dplyr - os n verbos
+
+- Manipulação de observações 
+
+    - **filter()**, distinct(), sample_frac(), sample_n(), slice(), top_n()
+    - **arrange()**, add_row()
+
+
+- Manipulação de variáveis
+
+    - **select()**
+        - matches(), num_range(), one_off(), everything()   
+
+    - **mutate()**, mutate_at(), mutate_if(), transmute(), add_column(), rename()
+        - sum(), median(), sd(), quantile(), n_distinct(), if_else(), recode()
+
+- Funções de síntese
+
+    - **summarise()**, summarise_all(), summarise_at(), summarise_if()
+    - **group_by()**, ungroup(), group_by_all(), group_by_at(), group_by_if() 
+---
+
+class: middle
+
+#### Para relembrar e fazer os desafios de dplyr da oficina de R básico:
+
+
+- https://bit.ly/rladiesSP5
+
+---
+class:  center, middle
+# Introdução ao Join
+---
+# dplyr - combinando tabelas
+
+```{r, collapse = T}
+band_members
+
+band_surnames <- tibble(surname = c("Jagger", "Lennon", "McCatney"))
+
+```
+
+```{r, collapse = T}
+bind_cols(band_members, band_surnames)
+```
+
+
+---
+# dplyr - combinando tabelas
+
+<br>
+
+```{r echo=FALSE, fig.align='center', out.width="83%"}
+knitr::include_graphics("img/dplyr_bind_1.png")
+```
+
+
+<br>
+
+
+```{r echo=FALSE, fig.align='center', out.width="77%"}
+knitr::include_graphics("img/dplyr_bind_2.png")
+```
+
+---
+# dplyr - mesclando tabelas
+
+<br> 
+
+```{r echo=FALSE, fig.align='center', out.width="85%"}
+knitr::include_graphics("img/dplyr_join_2.png")
+```
+
+---
+# dplyr - mesclando tabelas
+
+
+```{r, collapse = T}
+band_members %>% glimpse()
+```
+
+```{r, collapse = T}
+band_instruments %>%  glimpse()
+```
+
+```{r, collapse = T}
+left_join(band_members, band_instruments, by = "name") %>% glimpse()
+```
+
+
+---
+# dplyr - mesclando tabelas
+
+
+```{r, collapse = T}
+right_join(band_members, band_instruments, by = "name") %>% glimpse()
+inner_join(band_members, band_instruments) %>% glimpse()
+full_join(band_members, band_instruments, by = "name") %>% glimpse()
+```
+
+
+---
+# dplyr - mesclando tabelas
+
+```{r, collapse = T}
+glimpse(band_members)
+```
+
+```{r, collapse = T}
+glimpse(band_instruments2)
+```
+```{r, collapse = T}
+left_join(band_members, band_instruments2, by=c("name"="artist")) %>% glimpse()
+```
+
+---
+# dplyr - mesclando tabelas
+
+```{r, collapse = T}
+base_A <- tibble(chave_nome_igual= c(1:3,NA), chave_nome_diferente_A= c(1:3,NA) , 
+            var_nome_igual= letters[1:4], var_nome_diferente_A= letters[1:4]) %>% 
+  glimpse()
+```
+
+```{r, collapse = T}
+base_B <- tibble(chave_nome_igual= c(2:4,NA), chave_nome_diferente_B= c(2:4,NA), 
+            var_nome_igual= letters[5:8], var_nome_diferente_B= letters[5:8]) %>% 
+  glimpse()
+```
+
+---
+# dplyr - mesclando tabelas
+
+```{r, collapse = T}
+full_join(base_A, base_B, 
+          by = c("chave_nome_igual" = "chave_nome_igual", 
+                 "chave_nome_diferente_A" = "chave_nome_diferente_B"),
+          suffix =c(".A",".B"), 
+          na_matches = pkgconfig::get_config("dplyr::na_matches")) %>% 
+  glimpse()
+
+```
+
+---
+class:  center, middle
+# Introdução ao purrr
+
+---
+# purrr - programação funcional
+
+O R é uma linguagem multi-paradigma: array, orientada a objectos, imperativo ... mas tem como cerne a linguagem funcional, e portanto uma natureza de soluções centrada em funções.  
+
+
+<br>
+
+
+> **map(.x,.f)**: Para cada ** .x ** faça ** .f **, onde:
+- .x: vetor, uma lista, colunas de um data frame
+- .f: função, fórmula ou vetor atômico
+
+
+
+
+---
+# purrr - map & exemplo
+
+```{r, echo = F, results = F}
+df_titanic <- df_titanic %>% ungroup
+```
+
+```{r, collapse = T}
+df_titanic2 <- df_titanic[1:9,c(1:3,11)]
+```
+
+- **map()** - aplica uma função a elementos (de listas ou vetores)
+
+```{r, collapse = T}
+df_titanic2 %>% map(is.na) %>%  map(sum)
+```
+
+```{r, collapse = T}
+#df_titanic2 %>% map(~sum(is.na(.)))
+#df_titanic2 %>% map( function(x) sum(is.na(x)) )
+```
+
+---
+# purrr - map + if
+
+- **map_if()** - aplica a função condicionalmente
+```{r, collapse = T} 
+df_titanic2 %>% map_if(is.character, as.factor)
+```
+
+
+
+---
+# purrr - map + at
+
+- **map_at()** - aplica a função aos elementos especificados por nome ou index
+```{r, collapse = T} 
+df_titanic2 %>% map_at("sobreviveu", as.factor)
+```
+
+
+---
+# purrr - map + n
+
+
+```{r, collapse = T} 
+x <- list(1, 2); y <- list(10, 20); z <- list(100, 200)
+```
+
+- **map2()** - aplica uma função a um par de elementos (de duas listas/vetores)
+```{r, collapse = T} 
+map2(x, y, ~ .x + .y)
+```
+
+- **pmap()** - aplica uma função a um grupo de elementos de um grupo de listas
+```{r, collapse = T} 
+pmap(list(x, y, z), sum)
+```
+
+
+---
+# purrr - map %>% glimpse()
+
+> o **map()** sempre retorna uma lista, mas você pode:
+
+- **map_lgl()** - lógico
+- **map_chr()** - caracter
+- **map_int()** - inteiro
+- **map_dbl()** - double
+- **map_df() ** - data frame
+- **map_dfr() ** - data frame (pelas linhas)
+- **map_dfc() ** - data frame (pelas colunas)
+- **walk()** - retorna o .x invisível (permite o uso do %>%)
+
+> ou ainda:
+
+- **modify_depth()** - aplica a função a cada elemento de um dado nível da lista
+- **cross2()** - obtem todas as combinações de .x e .y
+- **append()** - adiciona valores ao fim de uma lista
+- **flatten()** - remove um nível de index de uma lista
+- **...**
+
+
+---
+# purrr - possibilidades
+
+> faça para 1, crie a receita, faça para todos!
+
+```{r, eval=F, warning = F}
+#ilustração - 1
+list.files("\diretório_yakult", pattern='*.xlsx') %>% 
+  map(read_excel) %>% 
+  walk(glimpse)
+
+
+#ilustração - 2
+f_inventada <- function(data, concorrentes, visualização){ }
+  dados %>% cross_df %>% pmap(f_inventada)
+
+    
+#ilustração - 3
+mtcars %>%
+  split(.$cyl) %>%
+  map(~ lm(mpg ~ wt, data = .x)) %>%
+  map(summary) %>%
+  map_dbl("r.squared")
+
+```
+
+
+
+---
+class:  center, middle
+# Introdução ao ggplot2 
+---
+### O que é o ggplot2?
+
+- É um pacote usado para visualização de dados.
+
+- É uma implementação dos conceitos e definições sobre o que é um gráfico oriundos do livro _Grammar of Graphics_ de Leland Wilkinson. 
+
+- [Cheatsheet em português](https://www.rstudio.com/wp-content/uploads/2016/03/ggplot2-cheatsheet-portuguese.pdf)
+
+- **Materiais interessantes:**
+
+  *[Workshop Code Your Graph](https://alison.rbind.io/html/jamboree_heart_ggplot.html)
+
+  *[R for Data Science - capítulos 3 e 28](https://r4ds.had.co.nz/data-visualisation.html)
+
+```{r echo=FALSE, out.width="30%"}
+knitr::include_graphics("img/ggplot2.png")
+```
+---
+# O que é o grammar of graphics?
+  
+  - A ideia básica é que de forma independente podemos 
+especificar  e combinar blocos de construção de um gráfico para criar praticamente qualquer tipo de exibição gráfica desejada. 
+
+- Os blocos de construção (ou camadas)  de um gráfico incluem:
+
+  - data
+  - aesthetic mapping
+  - geometric object
+  - statistical transformations
+  - scales
+  - coordinate system
+  - position adjustments
+  - faceting
+  
+---
+** Exemplo passo a passo - geom_histogram() **
+  A função ggplot() recebe um data frame e cria a camada base do gráfico. Se rodarmos somente ela, teremos um painel em branco:
+
+```{r warning=FALSE}
+diamonds %>% ggplot() #usando o pipe
+```
+---
+** Exemplo passo a passo - geom_histogram() **
+  Porém, para construirmos o gráfico precisamos dizer como as observações das nossas variáveis serão representadas no gráfico e e para isso usamos a camada de mapeamento estético.
+  A combinação ggplot() + geom_() é o que definirá o tipo de gráfico que queremos gerar
+
+```{r warning=FALSE}
+diamonds %>% ggplot() +
+  geom_histogram(mapping = aes(x = depth))
+```
+---
+** Desafio 1 **
+  Plotar a distribuição de frequências (também conhecida como histograma) da variável price
+
+---
+** Desafio 1 - RESPOSTA **
+  Plotar a distribuição de frequências (também conhecida como histograma) da variável price
+
+```{r warning=FALSE}
+#lembre-se que as camadas sÃ£o unidas por um + e nÃ£o por  %>% 
+diamonds %>% ggplot() +
+  geom_histogram(mapping = aes(x = price))
+
+```
+---
+** Exemplo passo a passo 2: geom_bar **
+  Para variáveis categóricas, ou seja, aquelas que representam uma categoria como qualidade (bom, ruim), sexo(M, F) ou no nosso caso, a qualidade do corte da pedra, podemos usar um gráfico de barras
+
+```{r warning=FALSE}
+diamonds %>% ggplot() +
+  geom_bar(aes(x=cut))
+```
+---
+** Exemplo passo a passo 2: geom_bar **
+  Podemos preencher as colunas com a informação sobre a cor das pedras
+
+```{r warning=FALSE}
+diamonds %>% ggplot()+
+  geom_bar(aes(x=cut, fill=color))
+```
+---
+** Exemplo passo a passo 2: geom_bar **
+  Com a camada theme_bw() podemos mudar o fundo do nosso gráfico
+
+```{r warning=FALSE}
+diamonds %>% ggplot() + 
+  geom_bar(aes(x=cut, fill=color)) + theme_bw()
+```
+---
+** Exemplo passo a passo 2: geom_bar **
+  Usando a função labs() podemos inserir títulos e legendas apropriadas para nosso gráfico
+
+```{r warning=FALSE}
+diamonds %>%  ggplot(aes(x=cut, fill=color)) +
+  geom_bar() + theme_bw() +
+  labs(title = "Título do gráfico", x = "Corte do diamante", 
+    y = "Contagem", fill = "Cor")
+```
+---
+** Desafio 2 **
+  Plote um gráfico de barras da váriavel claridade da pedra incluindo a informação sobre a cor da pedra para cada tipo de claridade de pedra. Use também legendas apropriadas 
+
+---
+** Desafio 2 - RESPOSTA **
+  Plote um gráfico de barras da váriavel claridade da pedra incluindo a informação sobre a cor da pedra para cada tipo de claridade de pedra. Use também legendas apropriadas 
+
+```{r warning=FALSE}
+diamonds %>%  ggplot(aes(x=clarity, fill=color)) +
+  geom_bar() + theme_bw() +
+  labs(title = "Cores dos diamantes por tipo de claridade", x = "Claridade do diamante", 
+    y = "Contagem", fill = "Cor")
+```
+---
+** Exemplo passo a passo 3: geom_point **
+
+```{r}
+diamonds %>% ggplot() + geom_point(aes(x = carat, y = price))
+```
+---
+** Exemplo passo a passo 3: geom_point **
+  Podemos estabelecer um tamanho médio por pedra e classificá-las como pequenas ou grandes
+  
+```{r}
+diamonds %>%
+   mutate(
+    tamanho = (x + y + z)/3,
+    tamanho = ifelse(tamanho <= 6, "Pequena", "Grande")
+  ) %>% 
+  filter(!is.na(tamanho)) %>% 
+  ggplot() + 
+  geom_point(mapping = aes(x = carat, y = price, color = tamanho))
+```
+---
+** Exemplo passo a passo 3: geom_point **
+
+Dois pontos importantes nesse exemplo:
+
+- Aqui fomos capazes de juntar os conceitos aprendidos até aqui do dplyr usando as funções mutate() e filter() juntamente com os as funções do ggplot2. Isso é extremamente comum quando estamos lidando com a visualização de dados.
+
+- O atributo color foi utilizado dentro da função aes(), pois temos a variável tamanho que precisa ser mapeada para ser representada no gráfico.
+
+---
+** Exemplo passo a passo 3: geom_point ** 
+  Outro exemplo
+
+```{r}
+diamonds %>%
+   mutate(
+    compra = ifelse(cut == "Fair" & price >= 5000, "Não vale a pena comprar", "Top")) %>% 
+  ggplot() + 
+  geom_point(mapping = aes(x = carat, y = price, color = compra))
+```
+---
+** Desafio 3 **
+
+Plote um gráfico de dispersão das variáveis price e carat pintando os pontos de acordo com a qualidade do corte das pedras
+
+---
+** Desafio 3 **
+  Plote um gráfico de dispersão das variáveis price e carat pintando os pontos de acordo com a qualidade do corte das pedras
+  
+```{r}
+diamonds %>% ggplot() + 
+  geom_point(mapping = aes(x = carat, y = price, color = cut))
+```
+---
+# Atributos estéticos
+
+* A função aes() indica a relação entre os dados e cada aspecto visual do gráfico, ou seja, qual variável será representada no eixo x, no eixo y, o tipo de linha do gráfico, a cor e o tamanho dos componentes geométricos, etc.
+ 
+  * Os aspectos visuais mais utilizados incluem:
+ 
+**color=**: altera a cor de formas que não têm área (pontos e retas).
+
+**fill=**: altera a cor de formas com área (barras, caixas, densidades, áreas).
+
+**size=**: altera o tamanho de formas.
+
+**type=**: altera o tipo da forma, geralmente usada para pontos.
+
+**linetype=**: altera o tipo da linha.
+---
+# Formas geométricas
+  * Os _geoms_ basicamente definem o tipo de gráfico que queremos construir.
+  Os principais são:
+
+*geom_line* - para linhas definidas por pares (x,y).
+
+*geom_abline* - para retas definidas por um intercepto e uma inclinação.
+
+*geom_hline* - para retas horizontais.
+
+*geom_bar* - para barras.
+
+*geom_histogram* - para histogramas.
+
+*geom_boxplot* - para boxplots.
+
+*geom_density* - para densidades.
+
+*geom_area* - para áreas.
+---
+# Quais aspectos visuais utilizar para cada geom_ ?
+  * Depende do que se quer mostrar no gráfico e do que cada geom_ aceita como aspecto visual
+  * Porém, temos um gif muito bom para isso:
+  
+```{r, include=FALSE}
+library(igraph)
+#install.packages("edgebundleR")
+library(edgebundleR)
+library(dplyr)
+library(purrr)
+#install.packages("widgetframe")
+suppressPackageStartupMessages(library(widgetframe))
+
+parameters <- readLines("data/geom_aes.csv")
+split_up <- function(x){
+  params <- unlist(strsplit(x, ","))
+  return(data.frame("from" = params[1], "to" = params[2:length(params)]))
+}
+
+relationship <- map_df(parameters, split_up)
+head(relationship)
+```
+
+```{r, warning= FALSE}
+frameWidget(edgebundle(graph_from_data_frame(relationship), tension = 0.45, cutoff = 0.1, width = NULL, fontsize = 14,
+  padding = 110, nodesize = c(5, 20), directed = FALSE), height = "600")
+```
+[Fonte](https://www.yihanwu.ca/post/geoms-and-aesthetic-parameters/)
+---
+# Associando gráficos
+  Imagine que temos dois gráficos que mapeiam as mesmas variáveis:
+
+```{r}
+# esquerda
+diamonds %>% 
+  ggplot() + 
+  geom_point(aes(x = carat, y = price))
+```
+```{r}
+# direita
+diamonds %>% 
+  ggplot() + 
+  geom_smooth(aes(x = carat, y = price))
+```
+
+---
+# Associando gráficos
+  Podemos simplesmente escrever:
+```{r, warning=FALSE}
+# juntos
+diamonds %>% 
+  ggplot() + 
+  geom_point(aes(x = carat, y = price)) +
+  geom_smooth(aes(x = carat, y = price))
+
+```
+
+---
+# Associando gráficos
+  Podemos ainda especificar a função aes() dentro da função ggplot2 para não repetirmos ela duas vezes (e assim evitar possíveis erros, pois diferentes váriáveis podem ser mapeadas no gráfico)
+
+```{r, warning=FALSE}
+diamonds %>% 
+  ggplot(aes(x = carat, y = price)) + 
+  geom_point(aes(color = color)) +
+  geom_smooth()
+```
+---
+# Associando gráficos
+  Podemos também reproduzir um mesmo gráfico para várias categorias de uma dada variável:
+
+```{r, warning=FALSE}
+diamonds %>% 
+  ggplot(aes(x = carat, y = price)) + 
+  geom_point(aes(color = color)) +
+  geom_smooth() +
+  facet_wrap(~cut) #testar parametros ncol e nrow
+```
+
+---
+** Desafio 4 **
+
+  Plote um gráfico de dispersão das variáveis price e carat pintando os pontos de acordo com a qualidade do corte das pedras juntamente com a linha de tendência desses pontos (e seu intervalo de confiança) para cada uma das categorias da variável color
+---
+** Desafio 4 - RESPOSTA **
+  Plote um gráfico de dispersão das variáveis price e carat pintando os pontos de acordo com a qualidade do corte das pedras juntamente com a linha de tendência desses pontos (e seu intervalo de confiança) para cada uma das categorias da variável color
+
+```{r}
+diamonds %>% 
+  ggplot(mapping = aes(x = carat, y = price)) + 
+  geom_point(aes(color = cut)) +
+  geom_smooth() +
+  facet_wrap(~color)
+```
+---
+class:  inverse, center, middle
+## Temos mais um tempinho?
+---
+# Associando diferentes gráficos
+  Dessa vez precisamos de um pacote extra chamado patchwork
+```{r}
+#instale o pacote com esse comando:
+devtools::install_github("thomasp85/patchwork")
+#carregue o pacote
+library(patchwork)
+```
+---
+** Desafio 5 - E ÚLTIMO! **
+
+Plote quaisquer dois gráficos usando o ggplot2 e salve cada um deles em um objeto chamado grafico1 e grafico2, respectivamente (pode ser os gráficos mais simples que vimos no começo, como o histograma e o gráfico de dispersão)
+
+---
+** Desafio 5 - RESPOSTA **
+```{r}
+grafico1 <- diamonds %>%  
+  ggplot(aes(x=clarity, fill=color)) +
+  geom_bar() + theme_bw() +
+  labs(title = "Cores dos diamantes por tipo de claridade", x = "Claridade do diamante", 
+    y = "Contagem", fill = "Cor")
+
+grafico2 <- diamonds %>% 
+  filter(color %in% c("E", "F", "G", "H", "I", "J")) %>%
+  ggplot() + 
+  geom_boxplot(aes(x = color, y = price, fill = color), show.legend = FALSE) +
+  labs(title = "Boxplot das cores dos diamantes", x = "Cor do diamante", 
+    y = "Preço do diamante")
+
+grafico1 + grafico2
+```
+
+
+
+
+
+
+
+
+
+
+
+
+---
+class:  center, middle
+# Introdução ao Rmarkdown
+
+---
+## Rmarkdown
+* Possibilita exportar diferentes tipos de arquivos.
+```{r echo=FALSE, fig.align='center', out.width="50%"}
+knitr::include_graphics("img/markdown.png")
+```
+
+---
+class: middle
+## Como criar um arquivo RMarkdown?
+
+No RStudio, clique em File → New File → R Markdown 
+```{r echo=FALSE, fig.align='center'}
+knitr::include_graphics("img/1.PNG")
+```
+ 
+---
+class: middle
+## Como criar um arquivo RMarkdown?
+
+```{r echo=FALSE, fig.align='center', out.width="90%"}
+knitr::include_graphics("img/New_R_Markdown.png")
+```
+
+---
+class:  middle
+
+## yaml - metadados do documento:
+- **y**et **a**nother **m**arkup **l**anguage 
+- Controla muitas das configurações do documento.
+- title: título
+- subtitle: subtítulo
+- author: autor
+- date: data
+- output: formato (Ex: html_document, pdf_document, etc). 
+- Cuidado com a **identação**
+
+Leia também: [Output Formats - R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/output-formats.html)
+
+
+
+```{r eval=FALSE, include=TRUE}
+---
+title: "Initial R Markdown document"
+author: "Karl Broman"
+date: "April 23, 2015"
+output: html_document
+---
+
+```
+---
+## Markdown
+* O markdown é uma linguagem de marcação simples. 
+* [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+* Elaborada para ser fácil de ler, fácil de escrever.
+
+
+**Negrito**: `**bold**` 
+
+_Itálico_: `_italics_`
+
+---
+##Sintaxe Markdown
+**Adicionar títulos**
+
+`# Título 1`
+
+`## Título 2`
+
+`### Título 3` 
+
+# Título 1
+## Título 2
+### Título 3
+
+---
+class: middle
+## Fazendo uma lista
+Você pode fazer uma lista escrevendo com hífens ou asteriscos, como a seguir:
+
+`* negrito com asteriscos duplos`
+
+`* itálico com underline`
+
+`* fonte do tipo código com crase`
+
+ou dessa forma:
+
+`- negrito com asteriscos duplos`
+
+`- itálico com underline`
+
+`- fonte do tipo código com crase`
+
+Cada um vai aparecer como:
+
+- negrito com asteriscos duplos
+- itálico com underline
+- fonte do tipo código com crase
+
+Referência: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+
+
+---
+class: middle
+## Fazendo uma lista enumerada
+Você pode fazer uma lista numerada usando somente números. Você pode usar o mesmo número quantas vezes quiser: 
+
+`1. negrito com asteriscos duplos`
+
+`1. itálico com underline`
+
+`1. fonte do tipo código com crase`
+
+Isso irá aparecer como:
+
+1. negrito com asteriscos duplos
+1. itálico com underline
+1. fonte do tipo código com crase
+
+
+Referência: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+
+
+
+
+---
+class: middle
+## Compilando o RMarkdown
+
+Você compila o documento de RMarkdown para uma página html ao clicar no botão "Knit HTML" no canto superior esquerdo. 
+
+```{r echo=FALSE, fig.align='center', out.width="50%"}
+knitr::include_graphics("img/knit.png")
+```
+
+---
+### Desafio
+Crie um novo documento R Markdown. Delete todos os chuncks de código de R e escreva um pouco de Markdown (algumas seções, textos estilizados e lista com itens). 
+
+Converta o documento em uma webpage.
+
+Você pode usar o [Rmarkdown Cheatsheet](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) para referência.
+
+Referência: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+
+---
+class: middle
+#$ Mais de Markdown
+
+Você pode fazer um hiperlink dessa forma: `[**texto para mostrar**](http://the-web-page.com)`.
+
+Você pode incluir arquivo de imagem dessa forma: `![**título**](http://url/for/file)`
+
+Você pode fazer sobescrito (e.g., F~2~) com `F~2` e superescrito (e.g., F^2^) com `F^2^`.
+
+Se você sabe como escrever equações em LaTeX, ficará feliz em saber que pode usar $ $ e $$ $$ para inserir equações matemáticas, como e `$E = mc^2$`e
+
+$$y = \mu + \sum_{i=1}^p \beta_i x_i + \epsilon$$
+
+Referência: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+
+---
+class: middle
+#$ Chuncks de Código R
+
+Markdown é interessante e útil, mas seu real poder vem da combinação de Markdown com chuncks de códigos em R. 
+Isso  é o Markdown. Quando processado, o código em R será executado; se ele produz figuras, as figuras serão inseridas ao final do documento.
+
+```{r echo=FALSE, fig.align='center'}
+knitr::include_graphics("img/chunk.png")
+```
+
+
+
+- É uma boa ideia dar a cada chunck um nome, pois ele podem ajudar a corrigir erros, e, se quaisquer gráficos são produzidos, os nomes dos arquivos serão baseados no nome do chunck de código que os produzirem.
+
+
+Referência: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+---
+class: middle
+## Como criar um chunck de código?
+
+```{r echo=FALSE, fig.align='center'}
+knitr::include_graphics("img/8.PNG")
+```
+ 
+Dica: Atalho do teclado para criar chunks:  `Ctrl + ALt + I`.
+
+
+# Desafio
+Adicione chunks de código para carregar o pacote dplyr
+
+ 
+---
+class: middle
+## Como as coisas são compiladas?
+
+- Quando você pressiona o botão “Knit HTML”, o documento R Markdown é processado pelo knitr e um documento Markdown é produzido (como, também, um potencial conjunto de arquivos de figuras): o código em R é executado e substituído pelo input e output; se figuras são produzidas, links para essas figuras serão incluídos.
+
+- A seguir, os documentos Markdown e de figuras  são processados pela ferramenta pandoc, que converte o arquivo Markdown em um arquivo html, com as figuras anexadas.
+
+
+```{r echo=FALSE, fig.align='center'}
+knitr::include_graphics("img/rmd-15-rmd_to_html_fig-1.png")
+```
+
+Referência: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+
+
+---
+class: middle
+## Opções de chunck
+
+Há uma variedade de opções que podem afetar como os chuncks de código são tratados.
+
+- Use `echo=FALSE` para evitar que o próprio código apareça.
+
+- Use `results="hide"` para evitar que qualquer resultado seja impresso.
+
+- Use `eval=FALSE` para mostrar o código, mas ele não é avaliado.
+
+- Use `warning=FALSE` e `message=FALSE` para ocultar qualquer messagens de avisos produzidas.
+
+- Use `out.width` para controlar o tamanho de figuras produzidas (Ex: `out.width = "100%"`).
+
+
+
+Assim, você pode escrever:
+
+```{r echo=FALSE, fig.align='center'}
+knitr::include_graphics("img/chunk_load_libraries.png")
+```
+ 
+Referência: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+ 
+---
+class: middle
+## Opções globais de chunck
+Muitas vezes, haverá algumas opções que você irá querer repetir seu uso; para isso, você pode configurar as opções globais de chinck, como:  
+
+
+```{r echo=FALSE, fig.align='center'}
+knitr::include_graphics("img/chunk_global_options.png")
+```
+
+A opção `fig.path` define onde as figuras serão salvas. A `/` é importante, pois sem ela, as figuras seriam salvas no local padroã, mas só com nomes que começam com Figs. 
+
+
+
+Referência: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+
+---
+class: middle
+## Inline R code
+Você pode fazer com que todo número em seu relatório seja reproduzível. 
+
+```{r}
+#Use `r e ` para um in-line code chunk . 
+#O código será executado e
+#substituído com o valor do resultado.
+
+```
+
+
+
+```{r eval=FALSE, include=TRUE}
+`r code`
+
+Ex:
+
+`r round(3.14159265359, 2)`
+```
+
+`r round(3.14159265359, 2)`
+
+Não deixe que esse chunck in-line seja separado através das linhas.
+
+ 
+
+Referência: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+---
+class: middle
+## Inline R code
+Outro examplo:
+```{r eval=FALSE, include=TRUE}
+# O dataframe mtcars possui `r nrow(mtcars)` carros. 
+```
+
+Exemplo: O dataframe mtcars possui `r nrow(mtcars)` carros.
+---
+class: middle
+## Desafio
+
+
+- Tente um pouco de código R in-line.
+
+
+Referência: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+
+
+---
+class: middle
+## Exemplo: adicionando um gráfico
+```{r}
+attach(mtcars)
+plot(wt, mpg, main="Exemplo de Gráfico de Dispersão",
+xlab="Peso do Carro ", ylab="Milhas Por Galão ", pch=19)
+```
+---
+class: middle
+## Exemplo: adicionando uma tabela simples
+
+```{r }
+head(mtcars)
+```
+---
+class: middle
+## Exemplo: adicionando uma tabela
+```{r}
+DT::datatable(head(mtcars, 10),
+  fillContainer = TRUE, options = list(pageLength = 5))
+```
+---
+class: middle
+## Adicionando imagens usando o Knitr
+
+Função: `knitr::include_graphics()`
+
+Exemplo:
+```{r  out.width = "50%"}
+knitr::include_graphics("https://www.r-project.org/Rlogo.png")
+```
+---
+class: middle
+## Adicionando imagens usando Knitr: opções de Chunk 
+
+- `out.width = "50%"` - tamanho da imagem
+
+
+```{r echo=FALSE, out.width = "50%"}
+knitr::include_graphics("https://www.r-project.org/Rlogo.png")
+```
+
+[Opções do KnitR](https://yihui.name/knitr/options/#chunk-options)
+
+---
+class: middle
+##Adicionando imagens usando Knitr: opções de Chunk 
+
+- **Alinhamento da figura**
+- `fig.align = 'center', 'default', **'left'**,'right'` 
+
+```{r echo=FALSE,  out.width="20%", fig.align='left'} 
+knitr::include_graphics("https://www.r-project.org/Rlogo.png")
+```
+
+- `fig.align = 'center', 'default', 'left', **'right' **`
+
+```{r echo=FALSE,  out.width="20%", fig.align='right'}
+knitr::include_graphics("https://www.r-project.org/Rlogo.png")
+```
+---
+class: middle
+##Adicionando imagens usando Knitr: opções de Chunk 
+
+- Legenda de figura 
+
+- `fig.cap="Logo R"`
+
+
+```{r echo=FALSE,  out.width="50%", fig.cap="R Logo", fig.align='center'}
+knitr::include_graphics("https://www.r-project.org/Rlogo.png")
+```
+---
+
+class: middle
+## Desafio
+- Adicionar imagem 
+
+- Usar opções de chunk para controlar o tamanho da figura e para esconder o código. 
+
+
+
+Refêrencia: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+---
+class: middle
+## Outras opções de saída
+Você também pode converter o R Markdown para PDF ou um documento Word. Clique no pequeno triângulo próximo ao botão "Knit HTML" para aparecer um menu. Ou você pode colocar pdf_document ou word_document ino cabeçalho do arquivo.
+
+```{r echo=FALSE, fig.align='center'}
+knitr::include_graphics("img/knit.png")
+```
+
+Dica: Criando documentos em PDF
+Criando documentos em .pdf pode requerer a instalação de TeX. Se pedido, isso é detalhado numa mensagem de erro..
+
+
+
+Referência: [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+
+---
+##Desafio
+- Use o que aprendeu sobre RMarkdown e crie um pequeno relatório das atividades que fizemos hoje!
+
+- O [Cheat Sheet do RMarkdown](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) pode te ajudar!
+
+---
+class: middle
+## Outras opções de saída
+
+- Você pode fazer apresentações usando R, RMarkdown e KnitR - Use o pacote  [Xaringan](https://github.com/yihui/xaringan); (essa apresentação foi feita com Xaringan!)
+
+- Rmd compila em um formato HTML. Entoã você pode criar páginas html usando essa ferramenta. O pacote **[prettydoc](https://cran.r-project.org/web/packages/prettydoc/vignettes/architect.html)** cpode ajudar com alguns temas se você não sabe prgramar em HTML e CSS.
+
+
+
+- Veja a [galeria](https://rmarkdown.rstudio.com/gallery.html) for examples of what you can do with Rmarkdown.
+
+- Veja mais: https://rmarkdown.rstudio.com/index.html
+
+---
+## DEU ERRO NO KNITR!
+
+Calma! É bem comum dar erro ao compliar o arquivo pois **qualquer** código errado causa isso. Algumas coisas pra se observar:
+
+- Yaml header - se algo estiver errado, vai dar erro ao compilar. Muito cuidado com a identação!
+
+- Código nos chunks - teste o Run All Chunks e ver se dá erro em algum específico. Se descobrir, tente verificar o que há de errado no código (pode ser a falta de um parênteses, vírgula, entre outros).
+
+```{r echo=FALSE, out.width="30%"}
+knitr::include_graphics("https://media.giphy.com/media/j9GASQ5ocrIRicnmyq/giphy.gif")
+```
+
+---
+# Referências
+
+
+- https://r4ds.had.co.nz
+
+- https://www.curso-r.com/material/
+
+- https://www.tidyverse.org
+
+- http://brunaw.com/slides/rladies-sp/13-08-2018/meetup.html#1
+
+- https://github.com/MaryMS/2018-11-R-Course-FatecZS
+
+- https://beatrizmilz.github.io/talk/oficina_intro_r_ufabc_2018/
+
+- [SW Carpentry](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html)
+... 
+
+
+A apresentação foi feita em [xaringan](https://github.com/yihui/xaringan), um pacote do R! :)
+
+
+---
+
+class: middle, inverse
+
+# Muito obrigada!
+
+R-Ladies São Paulo
